@@ -1,9 +1,9 @@
 package com.turingmachine.core;
 
 public class PunchCard {
-    private Integer blue;
-    private Integer yellow;
-    private Integer purple;
+    protected Integer blue;
+    protected Integer yellow;
+    protected Integer purple;
     
     public PunchCard(Integer _blue, Integer _yellow, Integer _purple) {
         this.blue = _blue;
