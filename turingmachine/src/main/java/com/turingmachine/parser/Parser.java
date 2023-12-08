@@ -3,12 +3,14 @@ package com.turingmachine.parser;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import com.turingmachine.util.FileLiterator;
+
 public class Parser {
-    protected FileReader fileReader;
+    protected FileLiterator fileReader;
     protected Scanner scanner;
 
     public Parser(String filename) {
-        this.fileReader = new FileReader(filename);
+        this.fileReader = new FileLiterator(filename);
         try {
             this.scanner = fileReader.readFile();
         } catch (FileNotFoundException e) {
