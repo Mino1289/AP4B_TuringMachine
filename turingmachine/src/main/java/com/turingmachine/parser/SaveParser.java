@@ -1,8 +1,11 @@
 package com.turingmachine.parser;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.turingmachine.core.Save;
+import com.turingmachine.util.FileLiterator;
 
 public class SaveParser extends Parser {
     public SaveParser(String filename) {
@@ -31,5 +34,19 @@ public class SaveParser extends Parser {
             saves.add(save);
         }
         return saves;
+    }
+
+    public void writeSaves(ArrayList<Save> saves, String sep) {
+        FileWriter fileWriter = super.fileLiterator.writeFile();
+        for (Save save : saves) {
+            String rawString = save.getProblemId() + sep + save.getTestCount() + sep + save.getUsername();
+            try {
+                super.fileLiterator.writeLine(fileWriter, rawString);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+                return;
+            }
+        }
     }
 }

@@ -10,4 +10,21 @@ public class Save {
         this.testCount = _testCount;
         this.username = _username;
     }
+
+    public int getProblemId() {
+        return this.problemId;
+    }
+
+    public int getTestCount() {
+        return this.testCount;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void updateTestCount(int _testCount) {
+        if (0 <= _testCount && _testCount < this.testCount)
+            this.testCount = _testCount;
+    }
 }

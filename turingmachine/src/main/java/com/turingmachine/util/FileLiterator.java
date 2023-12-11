@@ -2,6 +2,8 @@ package com.turingmachine.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 // TODO: Add the writing part
@@ -39,5 +41,24 @@ public class FileLiterator {
 
     public void closeFile(Scanner scanner) {
         scanner.close();
+    }
+
+    public FileWriter writeFile() {
+        try {
+            File f = new File(this.filename);
+            if (!f.createNewFile()) {
+                // delete the file and create a new one
+                f.delete();
+                f.createNewFile();
+            }
+            return new FileWriter(this.filename);
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public void writeLine(FileWriter fileWriter, String line) throws IOException {
+        fileWriter.write(line);
     }
 }
