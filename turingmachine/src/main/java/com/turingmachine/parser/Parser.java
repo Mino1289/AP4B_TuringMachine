@@ -6,13 +6,13 @@ import java.util.Scanner;
 import com.turingmachine.util.FileLiterator;
 
 public class Parser {
-    protected FileLiterator fileReader;
+    protected FileLiterator fileLiterator;
     protected Scanner scanner;
 
     public Parser(String filename) {
-        this.fileReader = new FileLiterator(filename);
+        this.fileLiterator = new FileLiterator(filename);
         try {
-            this.scanner = fileReader.readFile();
+            this.scanner = fileLiterator.readFile();
         } catch (FileNotFoundException e) {
             System.err.println("An error occured");
             e.printStackTrace();

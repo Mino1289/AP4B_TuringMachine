@@ -25,8 +25,8 @@ public class SaveParser extends Parser {
     public ArrayList<Save> getSaves(String filename) {
         ArrayList<Save> saves = new ArrayList<Save>();
 
-        while (fileReader.hasNextLine(scanner)) {
-            String rawString = fileReader.readLine(scanner);
+        while (fileLiterator.hasNextLine(scanner)) {
+            String rawString = fileLiterator.readLine(scanner);
             Save save = parseSave(rawString);
             saves.add(save);
         }

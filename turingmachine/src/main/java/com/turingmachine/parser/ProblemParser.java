@@ -37,8 +37,8 @@ public class ProblemParser extends Parser {
     public ArrayList<Problem> getProblems(String filename) {
         ArrayList<Problem> problems = new ArrayList<Problem>();
 
-        while (fileReader.hasNextLine(scanner)) {
-            String rawString = fileReader.readLine(scanner);
+        while (fileLiterator.hasNextLine(scanner)) {
+            String rawString = fileLiterator.readLine(scanner);
             Problem problem = parseProblem(rawString);
             problems.add(problem);
         }
