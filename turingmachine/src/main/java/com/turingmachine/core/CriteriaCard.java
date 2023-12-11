@@ -1,14 +1,14 @@
 package com.turingmachine.core;
 
 public class CriteriaCard {
-    private Integer id;
+    private int id;
         
 
-    public CriteriaCard(Integer _id) {
+    public CriteriaCard(int _id) {
         this.id = _id;
     }
 
-    public Boolean test(PunchCard punchCard, PunchCard answer) {
+    public boolean test(PunchCard punchCard, PunchCard answer) {
         
         return true;
     }
