@@ -20,5 +20,4 @@ public class CriteriaCard {
     public boolean verify(PunchCard punchCard) {
         return criterias[testedCriteria].verify(punchCard);
     }
-
 }
