@@ -1,17 +1,17 @@
 package com.turingmachine.core;
 
 public class PunchCard {
-    private Integer blue;
-    private Integer yellow;
-    private Integer purple;
+    private int blue;
+    private int yellow;
+    private int purple;
     
-    public PunchCard(Integer _blue, Integer _yellow, Integer _purple) {
+    public PunchCard(int _blue, int _yellow, int _purple) {
         this.blue = _blue;
         this.yellow = _yellow;
         this.purple = _purple;
     }
 
-    public PunchCard(Integer x) {
+    public PunchCard(int x) {
         // max x = 555; min x = 111
         this.blue = x % 10;
         x /= 10;
@@ -20,15 +20,15 @@ public class PunchCard {
         this.purple = x % 10;
     }
 
-    public Integer getBlue() {
+    public int getBlue() {
         return this.blue;
     }
 
-    public Integer getYellow() {
+    public int getYellow() {
         return this.yellow;
     }
 
-    public Integer getPurple() {
+    public int getPurple() {
         return this.purple;
     }
 }

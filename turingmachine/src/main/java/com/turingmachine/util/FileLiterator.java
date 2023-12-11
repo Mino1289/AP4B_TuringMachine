@@ -33,7 +33,7 @@ public class FileLiterator {
         }
     }
 
-    public Boolean hasNextLine(Scanner scanner) {
+    public boolean hasNextLine(Scanner scanner) {
         return scanner.hasNextLine();
     }
 

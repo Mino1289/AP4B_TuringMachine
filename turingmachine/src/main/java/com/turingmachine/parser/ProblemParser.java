@@ -18,16 +18,16 @@ public class ProblemParser extends Parser {
         // extracted string looks like this ^
         String[] tokens = super.tokenize(rawString, ";");
 
-        Integer id = Integer.parseInt(tokens[0]);
-        Integer nbrOfCriteria = Integer.parseInt(tokens[1]);
+        int id = Integer.parseInt(tokens[0]);
+        int nbrOfCriteria = Integer.parseInt(tokens[1]);
 
         ArrayList<Integer> criteriaIds = new ArrayList<Integer>();
         for (int i = 0; i < nbrOfCriteria; i++) {
-            Integer criteriaId = Integer.parseInt(tokens[2 + i]);
+            int criteriaId = Integer.parseInt(tokens[2 + i]);
             criteriaIds.add(criteriaId);
         }
 
-        Integer answerInt = Integer.parseInt(tokens[2 + nbrOfCriteria]);
+        int answerInt = Integer.parseInt(tokens[2 + nbrOfCriteria]);
         PunchCard answer = new PunchCard(answerInt);
 
         Problem problem = new Problem(id, criteriaIds, answer);

@@ -10,13 +10,13 @@ public class SaveParser extends Parser {
     }
     
     public Save parseSave(String rawString) {
-        //idProblem;testCount;username
+        //problemId;testCount;username
         //        1;        3;"username"
         //1;3;username
         //extracted string looks like this ^
         String[] tokens = super.tokenize(rawString, ";");
-        Integer problemId = Integer.parseInt(tokens[0]);
-        Integer testCount = Integer.parseInt(tokens[1]);
+        int problemId = Integer.parseInt(tokens[0]);
+        int testCount = Integer.parseInt(tokens[1]);
         String username = tokens[2];
         
         return new Save(problemId, testCount, username);
