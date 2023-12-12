@@ -3,11 +3,11 @@ package com.turingmachine.core;
 import java.util.ArrayList;
 
 public class Problem {
-    private Integer id;
+    private int id;
     private ArrayList<Integer> criteriaIds;
     private PunchCard answer;
 
-    public Problem(Integer _id) {
+    public Problem(int _id) {
         this.id = _id;
     }
 
@@ -16,7 +16,7 @@ public class Problem {
      * @param punchCard
      * @return true if the punch card is correct, false otherwise
      */
-    public Boolean verify(PunchCard punchCard) {
+    public boolean verify(PunchCard punchCard) {
         return this.answer == punchCard;
     }
 }

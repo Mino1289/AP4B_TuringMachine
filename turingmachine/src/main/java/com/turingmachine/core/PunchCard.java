@@ -1,11 +1,11 @@
 package com.turingmachine.core;
 
 public class PunchCard {
-    protected Integer blue;
-    protected Integer yellow;
-    protected Integer purple;
+    protected int blue;
+    protected int yellow;
+    protected int purple;
 
-    public PunchCard(Integer _blue, Integer _yellow, Integer _purple) {
+    public PunchCard(int _blue, int _yellow, int _purple) {
         this.blue = _blue;
         this.yellow = _yellow;
         this.purple = _purple;
@@ -27,15 +27,15 @@ public class PunchCard {
                 (yellow == purple && yellow != blue);
     }
 
-    public Integer getBlue() {
+    public int getBlue() {
         return this.blue;
     }
 
-    public Integer getYellow() {
+    public int getYellow() {
         return this.yellow;
     }
 
-    public Integer getPurple() {
+    public int getPurple() {
         return this.purple;
     }
 }

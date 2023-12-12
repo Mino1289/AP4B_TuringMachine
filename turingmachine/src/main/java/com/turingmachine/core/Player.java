@@ -1,7 +1,7 @@
 package com.turingmachine.core;
 
 public class Player {
-    private Integer testCount;
+    private int testCount;
     private String username;
 
     public Player(String _username) {
