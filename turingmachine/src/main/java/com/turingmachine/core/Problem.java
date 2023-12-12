@@ -7,8 +7,10 @@ public class Problem {
     private ArrayList<Integer> criteriaIds;
     private PunchCard answer;
 
-    public Problem(int _id) {
+    public Problem(int _id, ArrayList<Integer> _criteriaIds, PunchCard _answer) {
         this.id = _id;
+        this.criteriaIds = _criteriaIds;
+        this.answer = _answer;
     }
 
     /**
