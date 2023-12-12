@@ -1,7 +1,7 @@
-module com.turingmachine {
+module com.turingmachine.gui {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.turingmachine to javafx.fxml;
-    exports com.turingmachine;
+    opens com.turingmachine.gui to javafx.fxml;
+    exports com.turingmachine.gui;
 }
