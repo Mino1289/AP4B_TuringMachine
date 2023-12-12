@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.gui</groupId>
+    <groupId>com.turingmachine</groupId>
     <artifactId>turingmachine</artifactId>
     <version>1</version>
     <properties>
@@ -41,7 +41,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.gui.App</mainClass>
+                            <mainClass>com.turingmachine.App</mainClass>
                         </configuration>
                     </execution>
                 </executions>

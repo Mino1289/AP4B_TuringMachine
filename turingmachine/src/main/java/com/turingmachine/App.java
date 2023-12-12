@@ -1,4 +1,4 @@
-package com.gui;
+package com.turingmachine;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

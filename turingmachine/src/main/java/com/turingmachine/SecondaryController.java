@@ -1,4 +1,4 @@
-package com.gui;
+package com.turingmachine;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
