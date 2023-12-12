@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import com.turingmachine.util.FileLiterator;
 
-public class Parser {
+public abstract class Parser {
     protected FileLiterator fileLiterator;
     protected Scanner scanner;
 

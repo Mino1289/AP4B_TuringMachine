@@ -11,6 +11,15 @@ public class PunchCard {
         this.purple = _purple;
     }
 
+    public PunchCard(int x) {
+        // max x = 555; min x = 111
+        this.blue = x % 10;
+        x /= 10;
+        this.yellow = x % 10;
+        x /= 10;
+        this.purple = x % 10;
+    }
+
     protected int nCount(int n) {
         return (blue == n ? 1 : 0) + (yellow == n ? 1 : 0)
                 + (purple == n ? 1 : 0);

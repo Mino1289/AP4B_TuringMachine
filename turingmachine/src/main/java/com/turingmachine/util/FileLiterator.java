@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-// TODO: Add the writing part
 public class FileLiterator {
     private String filename;
 
