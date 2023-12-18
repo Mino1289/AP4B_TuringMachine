@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.CriteriaCardSelectionController">
+   <children>
+      <Label layoutX="213.0" layoutY="67.0" text="Turing Machine">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="155.0" layoutY="183.0" text="Quelle(s) cartes voulez-vous tester ?">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="165.0" fitWidth="238.0" layoutX="6.0" layoutY="608.0">
+         <image>
+            <Image url="@../../../../../../../../Cartes%20critère/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="165.0" fitWidth="238.0" layoutX="256.0" layoutY="608.0">
+         <image>
+            <Image url="@../../../../../../../../Cartes%20critère/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="165.0" fitWidth="238.0" layoutX="507.0" layoutY="608.0">
+         <image>
+            <Image url="@../../../../../../../../Cartes%20critère/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="165.0" fitWidth="238.0" layoutX="7.0" layoutY="431.0" onKeyPressed="#selectCriteriaCard1">
+         <image>
+            <Image url="@../../../../../../../../Cartes%20critère/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="165.0" fitWidth="238.0" layoutX="257.0" layoutY="431.0">
+         <image>
+            <Image url="@../../../../../../../../Cartes%20critère/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="165.0" fitWidth="238.0" layoutX="508.0" layoutY="431.0">
+         <image>
+            <Image url="@../../../../../../../../Cartes%20critère/1.png" />
+         </image>
+      </ImageView>
+      <Spinner fx:id="blue" layoutX="213.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner layoutX="325.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner layoutX="439.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
+   </children>
+</AnchorPane>
