@@ -1,31 +1,43 @@
 package com.turingmachine.gui;
 
+import java.io.IOException;
+
+
 import javafx.fxml.FXML;
 
-public class PlayerMenuController {
+public class PlayerMenuController extends TMController {
+    private int nPlayers;
+
     @FXML
-    public void selectSolo() {
-        System.out.println("Solo!");
+    private void selectSolo() throws IOException {
+        this.nPlayers = 1;
+        goToDifficultyMenu();
     }
 
     @FXML
-    public void select2Player() {
-        System.out.println("2 Player!");
+    private void select2Player() throws IOException {
+        this.nPlayers = 2;
+        goToDifficultyMenu();
     }
 
     @FXML
-    public void select3Player() {
-        System.out.println("3 Player!");
+    private void select3Player() throws IOException {
+        this.nPlayers = 3;
+        goToDifficultyMenu();
     }
 
     @FXML
-    public void select4Player() {
-        System.out.println("4 Player!");
+    private void select4Player() throws IOException {
+        this.nPlayers = 4;
+        goToDifficultyMenu();
     }
 
-    @FXML
-    public void backToMainMenu() {
-        System.out.println("Back to Main Menu!");
+    private void goToDifficultyMenu() throws IOException {
+        super.game.setNPlayers(this.nPlayers);
+        App.setRoot("difficulty-menu");
     }
-        
+    @FXML
+    private void backToMainMenu() throws IOException {
+        App.setRoot("main-menu");
+    }
 }

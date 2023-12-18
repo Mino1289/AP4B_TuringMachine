@@ -9,29 +9,38 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.turingmachine.core.Game;
+
 /**
  * JavaFX App
  */
 public class App extends Application {
-
+    private static Game game;
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("player-menu"), 640, 480);
+        scene = new Scene(loadFXML("main-menu").load(), 640, 480);
         stage.setScene(scene);
         stage.setTitle("TuringMachine");
-        // stage.getIcons().add(Image(""))
+        stage.getIcons().add(new Image("file: TMLogo.png"));
+        game = new Game();
         stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        FXMLLoader loader = loadFXML(fxml);
+        scene.setRoot(loader.load());
+        // Here you can get the controller
+        Object controller = loader.getController();
+        if (controller instanceof TMController) {
+            ((TMController) controller).setGame(game);
+        }    
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    private static FXMLLoader loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        return fxmlLoader;
     }
 
     public static void main(String[] args) {

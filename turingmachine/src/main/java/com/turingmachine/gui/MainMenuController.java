@@ -7,7 +7,7 @@ public class MainMenuController {
 
     @FXML
     private void startGame() throws IOException {
-        App.setRoot("difficulty-menu");
+        App.setRoot("player-menu");
     }
 
     @FXML
@@ -18,7 +18,6 @@ public class MainMenuController {
 
     @FXML
     public void quit() {
-        System.out.println("Quit!");
         System.exit(0);
     }
 }

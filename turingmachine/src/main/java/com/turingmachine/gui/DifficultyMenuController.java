@@ -5,26 +5,21 @@ import javafx.fxml.FXML;
 
 import com.turingmachine.core.DifficultyLevel;
 
-public class DifficultyMenuController {
-    private DifficultyLevel difficultyLevel;
+public class DifficultyMenuController extends TMController {
 
     @FXML
     private void selectEasyMode() {
-        difficultyLevel = DifficultyLevel.EASY;
+        super.game.setDifficultyLevel(DifficultyLevel.EASY);
     }
 
     @FXML
     private void selectMediumMode() {
-        difficultyLevel = DifficultyLevel.MEDIUM;
+        super.game.setDifficultyLevel(DifficultyLevel.MEDIUM);
     }
 
     @FXML
     private void selectHardMode() {
-        difficultyLevel = DifficultyLevel.HARD;
-    }
-
-    public DifficultyLevel getDifficultyLevel() {
-        return difficultyLevel;
+        super.game.setDifficultyLevel(DifficultyLevel.HARD);
     }
 
     @FXML
