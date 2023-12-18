@@ -49,8 +49,8 @@
             <Image url="@../../../../../../../../Cartes%20critère/1.png" />
          </image>
       </ImageView>
-      <Spinner fx:id="blue" layoutX="213.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
-      <Spinner layoutX="325.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
-      <Spinner layoutX="439.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner fx:id="blue"   min="1" max="5" initialValue="1" layoutX="213.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner fx:id="yellow" min="1" max="5" initialValue="1" layoutX="325.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner fx:id="purple" min="1" max="5" initialValue="1" layoutX="439.0" layoutY="292.0" prefHeight="19.0" prefWidth="79.0" />
    </children>
 </AnchorPane>

@@ -1,18 +1,22 @@
 package com.turingmachine.gui;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 
-public class CriteriaCardSelectionController {
-
-    @FXML
-    private Spinner blue;
+public class CriteriaCardSelectionController extends TMController {
 
     @FXML
-    private Spinner yellow;
+    private Spinner<Integer> blue;
 
     @FXML
-    private Spinner purple;
+    private Spinner<Integer> yellow;
+
+    @FXML
+    private Spinner<Integer> purple;
     
     @FXML
     private void selectCriteriaCard1() {
@@ -45,6 +49,11 @@ public class CriteriaCardSelectionController {
         System.out.println("Criteria Card 6!");
     }
 
-    
-        
+    private void initialize() {
+        SpinnerValueFactory<Integer> spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,5,1);
+        blue.setValueFactory(spinner);
+        yellow.setValueFactory(spinner);
+        purple.setValueFactory(spinner);
+    }
+
 }
