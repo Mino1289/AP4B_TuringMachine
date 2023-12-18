@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.MainMenuController">
    <children>
       <Label layoutX="138.0" layoutY="59.0" text="Turing Machine">
          <font>
@@ -18,8 +17,8 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="273.0" layoutY="333.0" mnemonicParsing="false" text="Quitter" />
-      <Button layoutX="219.0" layoutY="278.0" mnemonicParsing="false" text="Hisrorique des parties" />
-      <Button layoutX="274.0" layoutY="229.0" mnemonicParsing="false" text="Jouer" />
+      <Button layoutX="273.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#quit" text="Quitter" />
+      <Button layoutX="244.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#showHighScores" text="Meilleurs scores" />
+      <Button layoutX="274.0" layoutY="229.0" mnemonicParsing="false" onMouseClicked="#startGame" text="Jouer" />
    </children>
 </AnchorPane>

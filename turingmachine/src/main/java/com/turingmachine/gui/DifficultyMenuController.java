@@ -17,4 +17,9 @@ public class DifficultyMenuController {
     private void selectHardMode() {
         System.out.println("Hard mode selected!");
     }
+
+    @FXML
+    private void backToMainMenu() {
+        System.out.println("Back to main menu!");
+    }
 }
