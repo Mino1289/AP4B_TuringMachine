@@ -22,22 +22,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("criteria-card-selection").load(), 640, 480);
+        scene = new Scene(loadFXML("main-menu").load(), 640, 480);
         stage.setScene(scene);
         stage.setTitle("TuringMachine");
-        stage.getIcons().add(new Image("file: TMLogo.png"));
         game = new Game();
         stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
         FXMLLoader loader = loadFXML(fxml);
-        scene.setRoot(loader.load());
-        // Here you can get the controller
-        // Object controller = loader.getController();
-        // if (controller instanceof TMController) {
-        //     ((TMController) controller).setGame(game);
-        // }    
+        scene.setRoot(loader.load()); 
     }
 
     private static FXMLLoader loadFXML(String fxml) throws IOException {

@@ -17,25 +17,28 @@ public class CriteriaCardSelectionController extends TMController implements Ini
 
     @FXML
     private Spinner<Integer> blue;
+    @FXML
     private Spinner<Integer> yellow;
+    @FXML
     private Spinner<Integer> purple;
+    @FXML
     private AnchorPane mypane;
     
     
-
+    @FXML
     public void initialize(URL url, ResourceBundle rb) {
         super.start();
         int i = 0;
         for (CriteriaCard critCard : super.game.getProblem().getCriterias()) {
-            final ImageView selectedImage = new ImageView();
-            Image image = new Image("file:imgs/"+critCard.getId()+".png");
+            ImageView selectedImage = new ImageView();
+            Image image = new Image("file:turingmachine\\src\\main\\resources\\com\\turingmachine\\gui\\imgs\\"+critCard.getId()+".png");
             selectedImage.setImage(image);
             selectedImage.setPreserveRatio(true);
             selectedImage.setFitWidth(150);
             selectedImage.setFitHeight(150);
-            selectedImage.setX(150 * i);
+            selectedImage.setX(152 * i);
             selectedImage.setY(350);
-            mypane.getChildren().addAll(selectedImage);
+            this.mypane.getChildren().addAll(selectedImage);
             i++;
         }
         

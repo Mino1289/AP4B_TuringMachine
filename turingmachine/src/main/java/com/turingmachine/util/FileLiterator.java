@@ -19,7 +19,7 @@ public class FileLiterator {
             File file = new File(this.filename);
             return new Scanner(file);
         } catch (FileNotFoundException e) {
-            System.err.println("An error occured");
+            System.err.println("An error occured while reading the file.");
             e.printStackTrace();
             return null;
         }

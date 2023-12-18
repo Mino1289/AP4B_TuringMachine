@@ -33,7 +33,7 @@ public class PlayerMenuController extends TMController {
     }
 
     private void goToDifficultyMenu() throws IOException {
-        super.game.setNPlayers(this.nPlayers);
+        super.setNPlayers(this.nPlayers);
         App.setRoot("difficulty-menu");
     }
     @FXML

@@ -9,19 +9,19 @@ public class DifficultyMenuController extends TMController {
 
     @FXML
     private void selectEasyMode() throws IOException {
-        super.game.setDifficultyLevel(DifficultyLevel.EASY);
+        super.setDifficultyLevel(DifficultyLevel.EASY);
         goToCriteriaCardSelection();
     }
 
     @FXML
     private void selectMediumMode() throws IOException {
-        super.game.setDifficultyLevel(DifficultyLevel.MEDIUM);
+        super.setDifficultyLevel(DifficultyLevel.MEDIUM);
         goToCriteriaCardSelection();
     }
 
     @FXML
     private void selectHardMode() throws IOException {
-        super.game.setDifficultyLevel(DifficultyLevel.HARD);
+        super.setDifficultyLevel(DifficultyLevel.HARD);
         goToCriteriaCardSelection();
     }
 
@@ -31,7 +31,6 @@ public class DifficultyMenuController extends TMController {
     }
 
     private void goToCriteriaCardSelection() throws IOException {
-        super.game.start();
         App.setRoot("criteria-card-selection");
     }
 }
