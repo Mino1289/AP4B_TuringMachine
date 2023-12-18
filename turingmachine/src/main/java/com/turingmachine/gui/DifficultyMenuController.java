@@ -1,25 +1,34 @@
 package com.turingmachine.gui;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
 
+import com.turingmachine.core.DifficultyLevel;
+
 public class DifficultyMenuController {
+    private DifficultyLevel difficultyLevel;
+
     @FXML
     private void selectEasyMode() {
-        System.out.println("Easy mode selected!");
+        difficultyLevel = DifficultyLevel.EASY;
     }
 
     @FXML
     private void selectMediumMode() {
-        System.out.println("Medium mode selected!");
+        difficultyLevel = DifficultyLevel.MEDIUM;
     }
 
     @FXML
     private void selectHardMode() {
-        System.out.println("Hard mode selected!");
+        difficultyLevel = DifficultyLevel.HARD;
+    }
+
+    public DifficultyLevel getDifficultyLevel() {
+        return difficultyLevel;
     }
 
     @FXML
-    private void backToMainMenu() {
-        System.out.println("Back to main menu!");
+    private void backToMainMenu() throws IOException {
+        App.setRoot("main-menu");
     }
 }

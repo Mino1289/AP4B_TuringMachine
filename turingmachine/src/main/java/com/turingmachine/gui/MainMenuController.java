@@ -1,22 +1,24 @@
 package com.turingmachine.gui;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
 
 public class MainMenuController {
 
     @FXML
-    private void startGame() {
-        System.out.println("Start game!");
+    private void startGame() throws IOException {
+        App.setRoot("difficulty-menu");
     }
 
     @FXML
     private void showHighScores() {
-        System.out.println("Show high scores!");
+        
     }
 
 
-   @FXML
-   public void quit() {
-      System.out.println("Quit!");
-   }
+    @FXML
+    public void quit() {
+        System.out.println("Quit!");
+        System.exit(0);
+    }
 }
