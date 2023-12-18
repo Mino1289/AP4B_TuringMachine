@@ -16,12 +16,6 @@ import javafx.scene.layout.AnchorPane;
 public class CriteriaCardSelectionController extends TMController implements Initializable {
 
     @FXML
-    private Spinner<Integer> blue;
-    @FXML
-    private Spinner<Integer> yellow;
-    @FXML
-    private Spinner<Integer> purple;
-    @FXML
     private AnchorPane mypane;
     
     
