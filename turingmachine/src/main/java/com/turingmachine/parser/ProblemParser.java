@@ -37,11 +37,11 @@ public class ProblemParser extends Parser {
         return problem;
     }
 
-    public ArrayList<Problem> getProblems(String filename) {
+    public ArrayList<Problem> getProblems() {
         ArrayList<Problem> problems = new ArrayList<Problem>();
 
-        while (fileLiterator.hasNextLine(scanner)) {
-            String rawString = fileLiterator.readLine(scanner);
+        while (fileLiterator.hasNextLine(super.scanner)) {
+            String rawString = fileLiterator.readLine(super.scanner);
             Problem problem = parseProblem(rawString);
             problems.add(problem);
         }

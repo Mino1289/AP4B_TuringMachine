@@ -1,11 +1,20 @@
 package com.turingmachine.core;
 
+import java.util.ArrayList;
+
+import com.turingmachine.parser.ProblemParser;
+
 public class Game {
     private int nPlayers;
     private DifficultyLevel difficultyLevel;
     private Problem problem;
     
     public Game() {}
+
+    public Game(int _nPlayers, DifficultyLevel _difficultyLevel) {
+        this.nPlayers = _nPlayers;
+        this.difficultyLevel = _difficultyLevel;
+    }
 
     public void setDifficultyLevel(DifficultyLevel _difficultyLevel) {
         this.difficultyLevel = _difficultyLevel;
@@ -17,11 +26,16 @@ public class Game {
         }
     }
 
-    // public int getNPlayers() {
-    //     return this.nPlayers;
-    // }
+    public Problem getProblem() {
+        return this.problem;
+    }
 
     public void start() {
-        System.out.println("Game started");
+        // randomly get a problem
+        // for testing only, we will use the same problem 1.
+        // the path to the problem file is /turingmachine/src/main/resources/problems.txt
+        ProblemParser problemParser = new ProblemParser("src/main/resources/com/turingmachine/core/problems.txt");
+        this.problem = problemParser.getProblems().get(0); // get the first problem
+        // System.out.println(this.problem.getId());        
     }
 }

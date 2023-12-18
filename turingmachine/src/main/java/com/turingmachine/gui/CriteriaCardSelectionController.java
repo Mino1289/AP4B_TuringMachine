@@ -3,57 +3,43 @@ package com.turingmachine.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import com.turingmachine.core.CriteriaCard;
+import com.turingmachine.core.Game;
 
-public class CriteriaCardSelectionController extends TMController {
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Spinner;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+
+public class CriteriaCardSelectionController extends TMController implements Initializable {
 
     @FXML
     private Spinner<Integer> blue;
-
-    @FXML
     private Spinner<Integer> yellow;
-
-    @FXML
     private Spinner<Integer> purple;
+    private AnchorPane mypane;
     
-    @FXML
-    private void selectCriteriaCard1() {
-        System.out.println(blue.getValue());
-        System.out.println("Criteria Card 1!");
-    }
+    
 
-    @FXML
-    private void selectCriteriaCard2() {
-        System.out.println("Criteria Card 2!");
-    }
-
-    @FXML
-    private void selectCriteriaCard3() {
-        System.out.println("Criteria Card 3!");
-    }
-
-    @FXML
-    private void selectCriteriaCard4() {
-        System.out.println("Criteria Card 4!");
-    }
-
-    @FXML
-    private void selectCriteriaCard5() {
-        System.out.println("Criteria Card 5!");
-    }
-
-    @FXML
-    private void selectCriteriaCard6() {
-        System.out.println("Criteria Card 6!");
-    }
-
-    private void initialize() {
-        SpinnerValueFactory<Integer> spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,5,1);
-        blue.setValueFactory(spinner);
-        yellow.setValueFactory(spinner);
-        purple.setValueFactory(spinner);
+    public void initialize(URL url, ResourceBundle rb) {
+        super.start();
+        int i = 0;
+        for (CriteriaCard critCard : super.game.getProblem().getCriterias()) {
+            final ImageView selectedImage = new ImageView();
+            Image image = new Image("file:imgs/"+critCard.getId()+".png");
+            selectedImage.setImage(image);
+            selectedImage.setPreserveRatio(true);
+            selectedImage.setFitWidth(150);
+            selectedImage.setFitHeight(150);
+            selectedImage.setX(150 * i);
+            selectedImage.setY(350);
+            mypane.getChildren().addAll(selectedImage);
+            i++;
+        }
+        
+        System.out.println("INTITIALIZE");
     }
 
 }

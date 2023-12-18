@@ -13,6 +13,14 @@ public class Problem {
         this.answer = _answer;
     }
 
+    public ArrayList<CriteriaCard> getCriterias() {
+        return this.criterias;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
     /**
      * Verify that the punch card guess from the player is correct
      * @param punchCard

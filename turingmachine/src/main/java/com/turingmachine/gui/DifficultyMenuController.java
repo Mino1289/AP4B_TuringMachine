@@ -31,6 +31,7 @@ public class DifficultyMenuController extends TMController {
     }
 
     private void goToCriteriaCardSelection() throws IOException {
+        super.game.start();
         App.setRoot("criteria-card-selection");
     }
 }

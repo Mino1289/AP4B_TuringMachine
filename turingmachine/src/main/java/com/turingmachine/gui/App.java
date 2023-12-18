@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 import com.turingmachine.core.Game;
 
@@ -20,7 +22,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("main-menu").load(), 640, 480);
+        scene = new Scene(loadFXML("criteria-card-selection").load(), 640, 480);
         stage.setScene(scene);
         stage.setTitle("TuringMachine");
         stage.getIcons().add(new Image("file: TMLogo.png"));
@@ -32,10 +34,10 @@ public class App extends Application {
         FXMLLoader loader = loadFXML(fxml);
         scene.setRoot(loader.load());
         // Here you can get the controller
-        Object controller = loader.getController();
-        if (controller instanceof TMController) {
-            ((TMController) controller).setGame(game);
-        }    
+        // Object controller = loader.getController();
+        // if (controller instanceof TMController) {
+        //     ((TMController) controller).setGame(game);
+        // }    
     }
 
     private static FXMLLoader loadFXML(String fxml) throws IOException {
