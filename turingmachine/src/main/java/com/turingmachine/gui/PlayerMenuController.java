@@ -5,36 +5,34 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 
-public class PlayerMenuController extends TMController {
-    private int nPlayers;
+public class PlayerMenuController {
 
     @FXML
     private void selectSolo() throws IOException {
-        this.nPlayers = 1;
-        goToDifficultyMenu();
+        Singleton.getInstance().setNumberOfPlayers(1);
+        goToUsernameSelection();
     }
 
     @FXML
     private void select2Player() throws IOException {
-        this.nPlayers = 2;
-        goToDifficultyMenu();
+        Singleton.getInstance().setNumberOfPlayers(2);
+        goToUsernameSelection();
     }
 
     @FXML
     private void select3Player() throws IOException {
-        this.nPlayers = 3;
-        goToDifficultyMenu();
+        Singleton.getInstance().setNumberOfPlayers(3);
+        goToUsernameSelection();
     }
 
     @FXML
     private void select4Player() throws IOException {
-        this.nPlayers = 4;
-        goToDifficultyMenu();
+        Singleton.getInstance().setNumberOfPlayers(4);
+        goToUsernameSelection();
     }
 
-    private void goToDifficultyMenu() throws IOException {
-        super.setNPlayers(this.nPlayers);
-        App.setRoot("difficulty-menu");
+    private void goToUsernameSelection() throws IOException {
+        App.setRoot("username-selection");
     }
     @FXML
     private void backToMainMenu() throws IOException {

@@ -5,23 +5,23 @@ import javafx.fxml.FXML;
 
 import com.turingmachine.core.DifficultyLevel;
 
-public class DifficultyMenuController extends TMController {
+public class DifficultyMenuController {
 
     @FXML
     private void selectEasyMode() throws IOException {
-        super.setDifficultyLevel(DifficultyLevel.EASY);
+        Singleton.getInstance().setDifficultyLevel(DifficultyLevel.EASY);
         goToCriteriaCardSelection();
     }
 
     @FXML
     private void selectMediumMode() throws IOException {
-        super.setDifficultyLevel(DifficultyLevel.MEDIUM);
+        Singleton.getInstance().setDifficultyLevel(DifficultyLevel.MEDIUM);
         goToCriteriaCardSelection();
     }
 
     @FXML
     private void selectHardMode() throws IOException {
-        super.setDifficultyLevel(DifficultyLevel.HARD);
+        Singleton.getInstance().setDifficultyLevel(DifficultyLevel.HARD);
         goToCriteriaCardSelection();
     }
 

@@ -1,42 +1,50 @@
 package com.turingmachine.gui;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.turingmachine.core.CriteriaCard;
-import com.turingmachine.core.Game;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Spinner;
+import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
-public class CriteriaCardSelectionController extends TMController implements Initializable {
+
+public class CriteriaCardSelectionController implements Initializable {
 
     @FXML
     private AnchorPane mypane;
-    
+    // TODO: Add a GridPane to the FXML file and use it to display the cards
     
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-        super.start();
+        Singleton singleton = Singleton.getInstance();
+        singleton.start();
+        GridPane mygpane = new GridPane();
         int i = 0;
-        for (CriteriaCard critCard : super.game.getProblem().getCriterias()) {
+        ArrayList<CriteriaCard> critCards = singleton.getGame().getProblem().getCriterias();
+        System.out.println(critCards.size());
+        for (CriteriaCard critCard : critCards) {
+            // System.out.println(critCard.getId());
             ImageView selectedImage = new ImageView();
             Image image = new Image("file:turingmachine\\src\\main\\resources\\com\\turingmachine\\gui\\imgs\\"+critCard.getId()+".png");
             selectedImage.setImage(image);
             selectedImage.setPreserveRatio(true);
             selectedImage.setFitWidth(150);
             selectedImage.setFitHeight(150);
-            selectedImage.setX(152 * i);
-            selectedImage.setY(350);
-            this.mypane.getChildren().addAll(selectedImage);
+            mygpane.add(selectedImage, critCards.size() > 4 ? (i >= 3 ? i-3 : i) : i,  critCards.size() > 4 && i >= 3 ? 1 : 0);
             i++;
         }
-        
-        System.out.println("INTITIALIZE");
+        mygpane.setLayoutX(25);
+        mygpane.setLayoutY(250);
+
+        this.mypane.getChildren().addAll(mygpane);
+        System.out.println("CriteriaCardSelectionController initialized");
     }
 
 }
