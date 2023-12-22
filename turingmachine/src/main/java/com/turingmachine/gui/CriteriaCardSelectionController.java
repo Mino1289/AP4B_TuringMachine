@@ -45,7 +45,7 @@ public class CriteriaCardSelectionController implements Initializable {
         for (CriteriaCard critCard : critCards) {
             // System.out.println(critCard.getId());
             ImageView selectedImage = new ImageView();
-            Image critImage = new Image("file:turingmachine\\src\\main\\resources\\com\\turingmachine\\gui\\imgs\\"+critCard.getId()+".png");
+            Image critImage = new Image("file:turingmachine/src/main/resources/com/turingmachine/gui/imgs/"+critCard.getId()+".png");
             selectedImage.setImage(critImage);
             selectedImage.setPreserveRatio(true);
             selectedImage.setFitWidth(150);
@@ -61,7 +61,7 @@ public class CriteriaCardSelectionController implements Initializable {
                     selectedImage.setOnMouseClicked(null);
                     selectedImage.setStyle("-fx-opacity: 0.5");
                     ImageView resultImageView = new ImageView();
-                    String path = "file:turingmachine\\src\\main\\resources\\com\\turingmachine\\gui\\";
+                    String path = "file:turingmachine/src/main/resources/com/turingmachine/gui/";
                     Image resultImage = new Image(path + (answer ? "true.png" : "false.png"));
                     resultImageView.setImage(resultImage);
                     resultImageView.setPreserveRatio(true);
@@ -90,6 +90,6 @@ public class CriteriaCardSelectionController implements Initializable {
 
     @FXML
     public void valider() {
-        
+
     }
 }
