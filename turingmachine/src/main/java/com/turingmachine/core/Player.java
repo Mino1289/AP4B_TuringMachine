@@ -12,4 +12,12 @@ public class Player {
     public void incrementTestCount() {
         this.testCount++;
     }
+
+    public int getTestCount() {
+        return this.testCount;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
 }

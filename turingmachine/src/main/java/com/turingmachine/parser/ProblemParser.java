@@ -14,7 +14,7 @@ public class ProblemParser extends Parser {
     }
     
     private Problem parseProblem(String rawString) {
-        //id;nbr of criteria;criteria1:idx2; criteria2:idx2;...;answer
+        //id;nbr of criteria;criteria1:idx; criteria2:idx2;...;answer
 
         String[] tokens = super.tokenize(rawString, ";");
 

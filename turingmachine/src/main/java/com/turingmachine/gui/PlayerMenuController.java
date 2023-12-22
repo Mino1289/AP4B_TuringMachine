@@ -32,10 +32,10 @@ public class PlayerMenuController {
     }
 
     private void goToUsernameSelection() throws IOException {
-        App.setRoot("username-selection");
+        TuringMachine.setRoot("username-selection");
     }
     @FXML
     private void backToMainMenu() throws IOException {
-        App.setRoot("main-menu");
+        TuringMachine.setRoot("main-menu");
     }
 }

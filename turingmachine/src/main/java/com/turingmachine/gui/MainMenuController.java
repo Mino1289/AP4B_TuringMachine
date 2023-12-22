@@ -7,7 +7,7 @@ public class MainMenuController {
 
     @FXML
     private void startGame() throws IOException {
-        App.setRoot("player-menu");
+        TuringMachine.setRoot("player-menu");
     }
 
     @FXML

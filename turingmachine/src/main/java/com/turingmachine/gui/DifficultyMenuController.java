@@ -10,27 +10,28 @@ public class DifficultyMenuController {
     @FXML
     private void selectEasyMode() throws IOException {
         Singleton.getInstance().setDifficultyLevel(DifficultyLevel.EASY);
-        goToCriteriaCardSelection();
+        goToPunchCardSelection();
     }
 
     @FXML
     private void selectMediumMode() throws IOException {
         Singleton.getInstance().setDifficultyLevel(DifficultyLevel.MEDIUM);
-        goToCriteriaCardSelection();
+        goToPunchCardSelection();
     }
 
     @FXML
     private void selectHardMode() throws IOException {
         Singleton.getInstance().setDifficultyLevel(DifficultyLevel.HARD);
-        goToCriteriaCardSelection();
+        goToPunchCardSelection();
     }
 
     @FXML
     private void backToMainMenu() throws IOException {
-        App.setRoot("main-menu");
+        TuringMachine.setRoot("main-menu");
     }
 
-    private void goToCriteriaCardSelection() throws IOException {
-        App.setRoot("criteria-card-selection");
+    private void goToPunchCardSelection() throws IOException {
+        Singleton.getInstance().start();
+        TuringMachine.setRoot("punchcard-selection");
     }
 }

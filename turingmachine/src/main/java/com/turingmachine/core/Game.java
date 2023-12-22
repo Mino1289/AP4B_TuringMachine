@@ -1,16 +1,18 @@
 package com.turingmachine.core;
 
+import java.util.ArrayList;
+
 import com.turingmachine.parser.ProblemParser;
 
 public class Game {
-    private int nPlayers;
+    private ArrayList<Player> players;
     private DifficultyLevel difficultyLevel;
     private Problem problem;
     
     public Game() {}
 
-    public Game(int _nPlayers, DifficultyLevel _difficultyLevel) {
-        this.nPlayers = _nPlayers;
+    public Game(ArrayList<Player> _players, DifficultyLevel _difficultyLevel) {
+        this.players = _players;
         this.difficultyLevel = _difficultyLevel;
     }
 
@@ -18,9 +20,9 @@ public class Game {
         this.difficultyLevel = _difficultyLevel;
     }
 
-    public void setNPlayers(int _nPlayers) {
-        if (_nPlayers >= 1 && _nPlayers >= 4) {
-            this.nPlayers = _nPlayers;
+    public void setPlayers(ArrayList<Player> _players) {
+        if (_players.size() >= 1 && _players.size() >= 4) {
+            this.players = _players;
         }
     }
 
