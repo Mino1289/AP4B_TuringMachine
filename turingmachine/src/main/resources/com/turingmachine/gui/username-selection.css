@@ -1,9 +1,5 @@
-/* @font-face {
-    font-family: 'Press Start 2P';
-    src: url('C:/Users/pourc/Desktop/AP4B_TuringMachine/turingmachine/src/main/resources/com/turingmachine/gui/font/PressStart2P-Regular.ttf');
-} */
 AnchorPane {
-    -fx-background-image: url('menu.png');
+    -fx-background-image: url('computer.png');
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
 }
@@ -11,7 +7,7 @@ AnchorPane {
 
 Label {
     -fx-font-family: "Impact";
-    -fx-text-fill: #efea40;
+    -fx-text-fill: #000000;
 }
 
 

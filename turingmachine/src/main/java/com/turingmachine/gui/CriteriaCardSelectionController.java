@@ -35,13 +35,13 @@ public class CriteriaCardSelectionController implements Initializable {
             Image image = new Image("file:turingmachine\\src\\main\\resources\\com\\turingmachine\\gui\\imgs\\"+critCard.getId()+".png");
             selectedImage.setImage(image);
             selectedImage.setPreserveRatio(true);
-            selectedImage.setFitWidth(150);
-            selectedImage.setFitHeight(150);
+            selectedImage.setFitWidth(200);
+            selectedImage.setFitHeight(200);
             mygpane.add(selectedImage, critCards.size() > 4 ? (i >= 3 ? i-3 : i) : i,  critCards.size() > 4 && i >= 3 ? 1 : 0);
             i++;
         }
         mygpane.setLayoutX(25);
-        mygpane.setLayoutY(250);
+        mygpane.setLayoutY(0);
 
         this.mypane.getChildren().addAll(mygpane);
         System.out.println("CriteriaCardSelectionController initialized");
