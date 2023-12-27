@@ -27,6 +27,6 @@ public class Problem {
      * @return true if the punch card is correct, false otherwise
      */
     public boolean verify(PunchCard punchCard) {
-        return this.answer == punchCard;
+        return this.answer.blue == punchCard.blue && this.answer.yellow == punchCard.yellow && this.answer.purple == punchCard.purple;
     }
 }

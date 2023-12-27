@@ -17,7 +17,7 @@ import com.turingmachine.core.Game;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class TuringMachine extends Application {
     private static Game game;
     private static Scene scene;
 
@@ -39,7 +39,7 @@ public class App extends Application {
     }
 
     private static FXMLLoader loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TuringMachine.class.getResource(fxml + ".fxml"));
         return fxmlLoader;
     }
 

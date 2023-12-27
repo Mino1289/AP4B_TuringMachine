@@ -38,12 +38,12 @@ public class UsernameController implements Initializable {
 
     @FXML
     private void backToPlayerMenu() throws IOException {
-        App.setRoot("player-menu");
+        TuringMachine.setRoot("player-menu");
     }
 
     @FXML
     private void backToMainMenu() throws IOException {
-        App.setRoot("main-menu");
+        TuringMachine.setRoot("main-menu");
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class UsernameController implements Initializable {
             }
             singleton.addPlayer(new Player(tf.getText()));
         }
-        App.setRoot("difficulty-menu");
+        TuringMachine.setRoot("difficulty-menu");
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.turingmachine.core.DifficultyLevel;
 import com.turingmachine.core.Player;
+import com.turingmachine.core.PunchCard;
 import com.turingmachine.core.Game;
 
 import javafx.scene.control.TextField;
@@ -15,7 +16,9 @@ public class Singleton {
         private ArrayList<Player> players = new ArrayList<Player>();        
         private DifficultyLevel difficultyLevel;
         private Game game;
-        
+        private int playerToPlay = 0;
+        private int testCounterCurrentPlayerLeft = 3;
+        private PunchCard currentPunchCard;
         
         public static Singleton getInstance(){
             return instance;
@@ -54,12 +57,37 @@ public class Singleton {
         }
 
         public void start() {
-            this.game = new Game(this.numberOfPlayers, this.difficultyLevel);
+            this.game = new Game(this.players, this.difficultyLevel);
             this.game.start();
         }
 
         public Game getGame() {
             return game;
+        }
+
+        public int getPlayerToPlay() {
+            return this.playerToPlay;
+        }
+
+        public void nextPlayer() {
+            this.testCounterCurrentPlayerLeft = 3;
+            this.playerToPlay = (this.playerToPlay + 1) % this.numberOfPlayers;
+        }
+
+        public boolean canCheckAnotherCriteria() {
+            return testCounterCurrentPlayerLeft != 0;
+        }
+
+        public void decrementTestCounter() {
+            this.testCounterCurrentPlayerLeft--;
+        }
+
+        public void setCurrentPunchCard(int blue, int yellow, int purple) {
+            this.currentPunchCard = new PunchCard(blue, yellow, purple);
+        }
+
+        public PunchCard getCurrentPunchCard() {
+            return this.currentPunchCard;
         }
         
     }
