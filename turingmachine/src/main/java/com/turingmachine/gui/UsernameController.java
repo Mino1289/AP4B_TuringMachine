@@ -30,8 +30,8 @@ public class UsernameController implements Initializable {
             singleton.addUsernameTextField(tf);
         }
         gPane.setHgap(10);
-        gPane.setLayoutX(150);
-        gPane.setLayoutY(200);
+        gPane.setLayoutX(325);
+        gPane.setLayoutY(300);
         this.myPane.getChildren().addAll(gPane);
         System.out.println("UsernameController initialized");
     }

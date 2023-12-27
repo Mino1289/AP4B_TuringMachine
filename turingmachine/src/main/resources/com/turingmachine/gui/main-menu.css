@@ -1,0 +1,30 @@
+/* @font-face {
+    font-family: 'Press Start 2P';
+    src: url('C:/Users/pourc/Desktop/AP4B_TuringMachine/turingmachine/src/main/resources/com/turingmachine/gui/font/PressStart2P-Regular.ttf');
+} */
+AnchorPane {
+    -fx-background-image: url('menu.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+
+Label {
+    -fx-font-family: "Impact";
+    -fx-text-fill: #efea40;
+}
+
+
+Button {
+    -fx-font-family: "Impact";
+    -fx-background-color: #040504; 
+    -fx-text-fill: #ffffff; 
+    -fx-font-size: 18px; 
+    -fx-background-radius: 30px;
+}
+
+Button:hover {
+    -fx-background-color: #fffffe; 
+    -fx-text-fill: #000000; 
+
+}   

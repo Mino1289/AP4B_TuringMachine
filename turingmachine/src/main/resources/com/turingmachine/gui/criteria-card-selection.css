@@ -1,0 +1,12 @@
+AnchorPane {
+    -fx-background-image: url('coffre.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+
+Label {
+    -fx-font-family: "Impact";
+    -fx-text-fill: #ffffff;
+}
+

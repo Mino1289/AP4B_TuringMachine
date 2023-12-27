@@ -48,8 +48,8 @@ public class CriteriaCardSelectionController implements Initializable {
             Image critImage = new Image("file:turingmachine/src/main/resources/com/turingmachine/gui/imgs/"+critCard.getId()+".png");
             selectedImage.setImage(critImage);
             selectedImage.setPreserveRatio(true);
-            selectedImage.setFitWidth(150);
-            selectedImage.setFitHeight(150);
+            selectedImage.setFitWidth(200);
+            selectedImage.setFitHeight(200);
 
             selectedImage.setOnMouseClicked(e -> {
                 if (singleton.canCheckAnotherCriteria()) {
@@ -76,7 +76,7 @@ public class CriteriaCardSelectionController implements Initializable {
             i++;
         }
         mygpane.setLayoutX(25);
-        mygpane.setLayoutY(250);
+        mygpane.setLayoutY(0);
 
         this.myPane.getChildren().addAll(mygpane);
         System.out.println("CriteriaCardSelectionController initialized");
