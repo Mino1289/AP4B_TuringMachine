@@ -394,6 +394,7 @@ public class CriteriaCardGenerator {
                 };
                 break;
             default:
+            //TODO: create custom exception
                 throw new IllegalArgumentException("Invalid criteria card id");
         }
         return new CriteriaCard(id, testedCriteria, criterias);

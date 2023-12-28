@@ -53,7 +53,7 @@ public class CriteriaCardSelectionController implements Initializable {
 
             selectedImage.setOnMouseClicked(e -> {
                 if (singleton.canCheckAnotherCriteria()) {
-                    // System.out.println(critCard.getId() + "   " + critCard.getIdx());
+                    // System.out.println(critCard.getId() + "   " + critCard.getTestedCriteria());
                     boolean answer = critCard.verify(singleton.getCurrentPunchCard());
 
                     singleton.decrementTestCounter();
