@@ -53,7 +53,7 @@ public class PunchCardSelectionController implements Initializable {
         for (CriteriaCard critCard : critCards) {
             // System.out.println(critCard.getId());
             ImageView selectedImage = new ImageView();
-            Image image = new Image("file:turingmachine/src/main/resources/com/turingmachine/gui/imgs/"+critCard.getId()+".png");
+            Image image = new Image(PunchCardSelectionController.class.getResource("imgs/" + critCard.getId() + ".png").toString());
             selectedImage.setImage(image);
             selectedImage.setPreserveRatio(true);
             selectedImage.setFitWidth(200);

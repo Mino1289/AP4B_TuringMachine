@@ -34,7 +34,7 @@ public class Game {
         // randomly get a problem
         // for testing only, we will use the same problem 1.
         
-        ProblemParser problemParser = new ProblemParser("turingmachine/src/main/resources/com/turingmachine/core/problems.txt");
+        ProblemParser problemParser = new ProblemParser(Game.class.getResource("problems.txt").getFile().toString().replaceFirst("/", "").replaceAll("%20", " "));
         this.problem = problemParser.getProblems().get(0); // get the first problem
         // System.out.println(this.problem.getId());
     }
