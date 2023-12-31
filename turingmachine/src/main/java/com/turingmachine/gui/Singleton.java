@@ -18,9 +18,9 @@ public class Singleton {
         private Game game;
         private int playerToPlay = 0;
         private int testCounterCurrentPlayerLeft = 3;
-        private PunchCard currentPunchCard;
+        private ArrayList<Player> playerfini = new ArrayList<Player>();
         
-        public static Singleton getInstance(){
+        public static Singleton getInstance() {
             return instance;
         }
 
@@ -62,7 +62,11 @@ public class Singleton {
         }
 
         public Game getGame() {
-            return game;
+            return this.game;
+        }
+
+        public void setPlayerToPlay(int pl) {
+            this.playerToPlay = pl;
         }
 
         public int getPlayerToPlay() {
@@ -74,6 +78,10 @@ public class Singleton {
             this.playerToPlay = (this.playerToPlay + 1) % this.numberOfPlayers;
         }
 
+        public boolean sameManche() {
+            return (this.playerToPlay + 1 - this.numberOfPlayers) != 0;
+        }
+
         public boolean canCheckAnotherCriteria() {
             return testCounterCurrentPlayerLeft != 0;
         }
@@ -82,12 +90,20 @@ public class Singleton {
             this.testCounterCurrentPlayerLeft--;
         }
 
-        public void setCurrentPunchCard(int blue, int yellow, int purple) {
-            this.currentPunchCard = new PunchCard(blue, yellow, purple);
+        public void setPlayerFini(Player player) {
+            this.playerfini.add(player);
         }
 
-        public PunchCard getCurrentPunchCard() {
-            return this.currentPunchCard;
+        public ArrayList<Player> getPlayerFini() {
+            return this.playerfini;
         }
         
+        public void erase() {
+            this.game = null;
+            this.players.clear();
+            this.usernameTextFieds.clear();
+            this.playerfini.clear();
+            this.playerToPlay = 0;
+            this.testCounterCurrentPlayerLeft = 3;
+        }
     }

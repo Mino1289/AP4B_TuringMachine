@@ -12,7 +12,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="323.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#next" text="Prochain Joueur" />
-      <Button layoutX="323.0" layoutY="402.0" mnemonicParsing="false" onMouseClicked="#valider" text="Valider le code" />
+      <Button layoutX="323.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#next" text="Suivant" />
    </children>
 </AnchorPane>
