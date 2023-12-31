@@ -58,9 +58,6 @@ public class Game {
     }
 
     public void start() {
-        // randomly get a problem
-        // for testing only, we will use the same problem 1.
-
         /* ProblemParser problemParser = new ProblemParser(
                 "turingmachine/src/main/resources/com/turingmachine/core/problems.txt");
         this.problem = problemParser.getProblems().get(0); // get the first problem */

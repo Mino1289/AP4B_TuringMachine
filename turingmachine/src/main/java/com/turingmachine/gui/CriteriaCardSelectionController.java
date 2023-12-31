@@ -27,15 +27,14 @@ public class CriteriaCardSelectionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Singleton singleton = Singleton.getInstance();
         int ptp = singleton.getPlayerToPlay();
-        System.out.println(ptp);
         Player currentPlayer = singleton.getPlayers().get(ptp);
         Label usernameLabel = new Label(currentPlayer.getUsername() + "  " + currentPlayer.getTestCount());
-        Label punchCardLabel = new Label(singleton.getCurrentPunchCard().toString());
+        Label punchCardLabel = new Label(currentPlayer.getPunchCard().toString());
 
-        usernameLabel.setLayoutX(25);
-        usernameLabel.setLayoutY(25);
-        punchCardLabel.setLayoutX(25);
-        punchCardLabel.setLayoutY(25);
+        usernameLabel.setLayoutX(150);
+        usernameLabel.setLayoutY(150);
+        punchCardLabel.setLayoutX(175);
+        punchCardLabel.setLayoutY(175);
         myPane.getChildren().addAll(usernameLabel, punchCardLabel);
 
         GridPane mygpane = new GridPane();
@@ -45,7 +44,7 @@ public class CriteriaCardSelectionController implements Initializable {
         for (CriteriaCard critCard : critCards) {
             // System.out.println(critCard.getId());
             ImageView selectedImage = new ImageView();
-            Image critImage = new Image("file:turingmachine/src/main/resources/com/turingmachine/gui/imgs/"+critCard.getId()+".png");
+            Image critImage = new Image(CriteriaCardSelectionController.class.getResource("imgs/" + critCard.getId() + ".png").toString());
             selectedImage.setImage(critImage);
             selectedImage.setPreserveRatio(true);
             selectedImage.setFitWidth(200);
@@ -53,16 +52,15 @@ public class CriteriaCardSelectionController implements Initializable {
 
             selectedImage.setOnMouseClicked(e -> {
                 if (singleton.canCheckAnotherCriteria()) {
-                    // System.out.println(critCard.getId() + "   " + critCard.getTestedCriteria());
-                    boolean answer = critCard.verify(singleton.getCurrentPunchCard());
-
+                    // System.out.println(critCard.getId() + "   " + critCard.getIdx());
+                    boolean answer = critCard.verify(currentPlayer.getPunchCard());
+                  
                     singleton.decrementTestCounter();
                     singleton.getPlayers().get(ptp).incrementTestCount();
                     selectedImage.setOnMouseClicked(null);
                     selectedImage.setStyle("-fx-opacity: 0.5");
                     ImageView resultImageView = new ImageView();
-                    String path = "file:turingmachine/src/main/resources/com/turingmachine/gui/";
-                    Image resultImage = new Image(path + (answer ? "true.png" : "false.png"));
+                    Image resultImage = new Image(CriteriaCardSelectionController.class.getResource((answer ? "true.png" : "false.png")).toString());
                     resultImageView.setImage(resultImage);
                     resultImageView.setPreserveRatio(true);
                     resultImageView.setFitWidth(32);
@@ -84,12 +82,15 @@ public class CriteriaCardSelectionController implements Initializable {
 
     @FXML
     public void next() throws IOException {
-        Singleton.getInstance().nextPlayer();
-        TuringMachine.setRoot("punchcard-selection");
+        Singleton singleton = Singleton.getInstance();
+        if (singleton.sameManche()) {
+            // dans la même manche
+            singleton.nextPlayer();
+            TuringMachine.setRoot("punchcard-selection");
+        } else {
+            // on change de manche
+            TuringMachine.setRoot("validate-screen");
+        }
     }
 
-    @FXML
-    public void valider() {
-
-    }
 }

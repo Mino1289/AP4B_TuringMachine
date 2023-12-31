@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.turingmachine.core.CriteriaCard;
+import com.turingmachine.core.Player;
+import com.turingmachine.core.PunchCard;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,7 +35,11 @@ public class PunchCardSelectionController implements Initializable {
         int yValue = yellow.getValue();
         int pValue = purple.getValue();
 
-        Singleton.getInstance().setCurrentPunchCard(bValue, yValue, pValue);
+
+        Singleton singleton = Singleton.getInstance();
+        Player player = singleton.getPlayers().get(singleton.getPlayerToPlay());
+        player.setPunchCard(new PunchCard(bValue, yValue, pValue));
+        // setCurrentPunchCard(bValue, yValue, pValue);
         TuringMachine.setRoot("criteria-card-selection");
     }
 
@@ -41,10 +47,14 @@ public class PunchCardSelectionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // create a Label with the username of the player
         Singleton singleton = Singleton.getInstance();
+        System.out.println(singleton.getPlayerToPlay());
+        for (Player player: singleton.getPlayers()) {
+            System.out.println(player.getUsername());
+        }
+
         Label usernameLabel = new Label(singleton.getPlayers().get(singleton.getPlayerToPlay()).getUsername());
         usernameLabel.setLayoutX(25);
-        usernameLabel.setLayoutY(25);
-        myPane.getChildren().add(usernameLabel);
+        usernameLabel.setLayoutY(175);
 
         GridPane mygpane = new GridPane();
         int i = 0;
@@ -53,7 +63,7 @@ public class PunchCardSelectionController implements Initializable {
         for (CriteriaCard critCard : critCards) {
             // System.out.println(critCard.getId());
             ImageView selectedImage = new ImageView();
-            Image image = new Image("file:turingmachine/src/main/resources/com/turingmachine/gui/imgs/"+critCard.getId()+".png");
+            Image image = new Image(PunchCardSelectionController.class.getResource("imgs/" + critCard.getId() + ".png").toString());
             selectedImage.setImage(image);
             selectedImage.setPreserveRatio(true);
             selectedImage.setFitWidth(200);
@@ -62,10 +72,10 @@ public class PunchCardSelectionController implements Initializable {
             mygpane.add(selectedImage, critCards.size() > 4 ? (i >= 3 ? i-3 : i) : i,  critCards.size() > 4 && i >= 3 ? 1 : 0);
             i++;
         }
-        mygpane.setLayoutX(25);
+        // mygpane.setLayoutX(25);
         mygpane.setLayoutY(25);
 
-        this.myPane.getChildren().addAll(mygpane);
+        this.myPane.getChildren().addAll(mygpane, usernameLabel);
 
         System.out.println("PunchCardSelectionController initialized");
     }
