@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
+import com.turingmachine.core.Game;
 import com.turingmachine.core.Player;
 
 import javafx.fxml.FXML;
@@ -23,13 +24,13 @@ public class ResultScreenController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-        Singleton singleton = Singleton.getInstance();
+        Game game = Game.getInstance();
 
         ArrayList<Boolean> answerList = new ArrayList<Boolean>();
         ArrayList<Integer> idxList = new ArrayList<Integer>();
         int i = 0;
-        for (Player player : singleton.getPlayerFini()) {
-            boolean answer = singleton.getGame().getProblem().verify(player.getPunchCard());
+        for (Player player : game.getPlayerFini()) {
+            boolean answer = game.getProblem().verify(player.getPunchCard());
             answerList.add(answer);
             if (answer) {
                 idxList.add(i);
@@ -38,9 +39,9 @@ public class ResultScreenController implements Initializable {
         }
         GridPane myGridPane = new GridPane();
         i = 0;
-        for (Player player : singleton.getPlayerFini()) {
+        for (Player player : game.getPlayerFini()) {
             ImageView resultImageView = new ImageView();
-            boolean answer = singleton.getGame().getProblem().verify(player.getPunchCard());
+            boolean answer = game.getProblem().verify(player.getPunchCard());
             Label pLabel = new Label(player.getUsername() + (answer ? ", tu as trouvé le bon code en: " + player.getTestCount() + " test de critères."  : ", tu n'as pas trouvé le bon code."));
             
             //TODO: Determine who won if multiple winner (the one with the less try)
@@ -72,10 +73,10 @@ public class ResultScreenController implements Initializable {
         Button btn = new Button("Suivant");
         if (idxList.size() == 1) {
             // easy case, he wins the game
-            Player winner = singleton.getPlayers().get(idxList.get(0)); 
+            Player winner = game.getPlayers().get(idxList.get(0)); 
             lbl.setText(winner.getUsername() + " a gagné la partie.");
             btn.setOnMouseClicked(e -> {
-                singleton.erase();
+                game.erase();
                 try {
                     TuringMachine.setRoot("main-menu");
                 } catch (IOException ex) {
@@ -85,13 +86,13 @@ public class ResultScreenController implements Initializable {
         } else if (idxList.size() > 1) {
             ArrayList<Player> winners = new ArrayList<Player>();
             for (int idx : idxList) {
-                winners.add(singleton.getPlayers().get(idx));
+                winners.add(game.getPlayers().get(idx));
             }
             winners.sort(Comparator.comparing(Player::getTestCount));
             Player winner = winners.get(0); // winner
             lbl.setText(winner.getUsername() + " a gagné la partie.");
             btn.setOnMouseClicked(e -> {
-                singleton.erase();
+                game.erase();
                 try {
                     TuringMachine.setRoot("main-menu");
                 } catch (IOException ex) {
@@ -101,27 +102,27 @@ public class ResultScreenController implements Initializable {
         } else if (idxList.size() == 0) {
             // ?? they tried, they lost: remove those who lost from the game
             lbl.setText("Personne n'a gagné, joueurs éliminé");
-            singleton.getPlayerFini().forEach(player -> {
-                singleton.getPlayers().remove(player);
+            game.getPlayerFini().forEach(player -> {
+                game.getPlayers().remove(player);
             });
             // black magic 'cause we removed some players
-            singleton.getPlayerFini().clear();
-            int size = singleton.getPlayers().size();
+            game.getPlayerFini().clear();
+            int size = game.getPlayers().size();
             if (size == 0) {
                 // ALED there is no one to play
                 btn.setOnMouseClicked(e -> {
                     try {
                         // clear the game
-                        singleton.erase();
+                        game.erase();
                         TuringMachine.setRoot("main-menu");
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     } 
                 });
             } else {
-                singleton.setNumberOfPlayers(size);
-                singleton.nextPlayer();
-                singleton.setPlayerToPlay(0);
+                game.setNumberOfPlayers(size);
+                game.nextPlayer();
+                game.setPlayerToPlay(0);
                 btn.setOnMouseClicked(e -> {
                     try {
                         TuringMachine.setRoot("punchcard-selection");

@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.turingmachine.core.Game;
 import com.turingmachine.core.Player;
 
 import javafx.fxml.FXML;
@@ -23,15 +24,15 @@ public class ValidateScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("ValidateScreen started initalize");
         GridPane myGridPane = new GridPane();
-        Singleton singleton = Singleton.getInstance();
+        Game game = Game.getInstance();
         
         int i = 1;
-        for (Player player : singleton.getPlayers()) {
+        for (Player player : game.getPlayers()) {
             Label pLabel = new Label(player.getUsername());
             Button pButton = new Button("J'ai trouvé !");
             pButton.setOnMouseClicked(e -> {
                 pButton.setOnMouseClicked(null);
-                singleton.setPlayerFini(player);
+                game.setPlayerFini(player);
             });
             myGridPane.add(pLabel, i, 0);
             myGridPane.add(pButton, i, 1);
@@ -49,8 +50,8 @@ public class ValidateScreenController implements Initializable {
 
     @FXML
     public void validate() throws IOException {
-        if (Singleton.getInstance().getPlayerFini().size() == 0) {
-            Singleton.getInstance().nextPlayer();
+        if (Game.getInstance().getPlayerFini().size() == 0) {
+            Game.getInstance().nextPlayer();
             TuringMachine.setRoot("punchcard-selection");
         } else {
             TuringMachine.setRoot("result-screen");

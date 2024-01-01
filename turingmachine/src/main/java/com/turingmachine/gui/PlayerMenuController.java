@@ -2,6 +2,7 @@ package com.turingmachine.gui;
 
 import java.io.IOException;
 
+import com.turingmachine.core.Game;
 
 import javafx.fxml.FXML;
 
@@ -9,25 +10,25 @@ public class PlayerMenuController {
 
     @FXML
     private void selectSolo() throws IOException {
-        Singleton.getInstance().setNumberOfPlayers(1);
+        Game.getInstance().setNumberOfPlayers(1);
         goToUsernameSelection();
     }
 
     @FXML
     private void select2Player() throws IOException {
-        Singleton.getInstance().setNumberOfPlayers(2);
+        Game.getInstance().setNumberOfPlayers(2);
         goToUsernameSelection();
     }
 
     @FXML
     private void select3Player() throws IOException {
-        Singleton.getInstance().setNumberOfPlayers(3);
+        Game.getInstance().setNumberOfPlayers(3);
         goToUsernameSelection();
     }
 
     @FXML
     private void select4Player() throws IOException {
-        Singleton.getInstance().setNumberOfPlayers(4);
+        Game.getInstance().setNumberOfPlayers(4);
         goToUsernameSelection();
     }
 

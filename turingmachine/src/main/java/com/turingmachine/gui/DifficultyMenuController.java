@@ -4,24 +4,25 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 
 import com.turingmachine.core.DifficultyLevel;
+import com.turingmachine.core.Game;
 
 public class DifficultyMenuController {
 
     @FXML
     private void selectEasyMode() throws IOException {
-        Singleton.getInstance().setDifficultyLevel(DifficultyLevel.EASY);
+        Game.getInstance().setDifficultyLevel(DifficultyLevel.EASY);
         goToPunchCardSelection();
     }
 
     @FXML
     private void selectMediumMode() throws IOException {
-        Singleton.getInstance().setDifficultyLevel(DifficultyLevel.MEDIUM);
+        Game.getInstance().setDifficultyLevel(DifficultyLevel.MEDIUM);
         goToPunchCardSelection();
     }
 
     @FXML
     private void selectHardMode() throws IOException {
-        Singleton.getInstance().setDifficultyLevel(DifficultyLevel.HARD);
+        Game.getInstance().setDifficultyLevel(DifficultyLevel.HARD);
         goToPunchCardSelection();
     }
 
@@ -31,7 +32,7 @@ public class DifficultyMenuController {
     }
 
     private void goToPunchCardSelection() throws IOException {
-        Singleton.getInstance().start();
+        Game.getInstance().start();
         TuringMachine.setRoot("punchcard-selection");
     }
 }
