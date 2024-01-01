@@ -21,11 +21,9 @@ public class UsernameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Singleton singleton = Singleton.getInstance();
         GridPane gPane = new GridPane();
-
-        System.out.println("username ctrler nplayer : " + singleton.getNumberOfPlayers());
+        singleton.getUsernameTextFieds().clear();
         for (int i = 0; i < singleton.getNumberOfPlayers(); i++) {
             TextField tf = new TextField();
-            tf.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
             gPane.addRow(i, tf);
             singleton.addUsernameTextField(tf);
         }
@@ -33,7 +31,6 @@ public class UsernameController implements Initializable {
         gPane.setLayoutX(325);
         gPane.setLayoutY(300);
         this.myPane.getChildren().addAll(gPane);
-        System.out.println("UsernameController initialized");
     }
 
     @FXML
@@ -52,13 +49,10 @@ public class UsernameController implements Initializable {
         // for each text field, get the text
         // if the text is empty, then show an error message
         // else, go to the next screen
-        System.out.println("validate");
         
         Singleton singleton = Singleton.getInstance();
         for (TextField tf : singleton.getUsernameTextFieds()) {
-            tf.setStyle("-fx-border-color: black ;");
             if (tf.getText().isEmpty()) {
-                tf.setStyle("-fx-border-color: red ;");
                 return;
             }
             singleton.addPlayer(new Player(tf.getText()));
