@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="myPane" maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0"  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.ValidateScreenController">
+   <children>
+      <Button layoutX="400.0" layoutY="520.0" mnemonicParsing="false" onMouseClicked="#validate" text="Valider" />
+   </children>
+</AnchorPane>

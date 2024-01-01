@@ -2,6 +2,8 @@ package com.turingmachine.parser;
 
 import java.util.ArrayList;
 
+import com.turingmachine.core.CriteriaCard;
+import com.turingmachine.core.CriteriaCardGenerator;
 import com.turingmachine.core.Problem;
 import com.turingmachine.core.PunchCard;
 
@@ -12,33 +14,34 @@ public class ProblemParser extends Parser {
     }
     
     private Problem parseProblem(String rawString) {
-        //id;nbr of criteria;criteria ids;answer
-        // 1;       4;     4; 9; 11; 14; 241
-        // 1;4;4;9;11;14;241
-        // extracted string looks like this ^
+        //id;nbr of criteria;criteria1:idx; criteria2:idx2;...;answer
+
         String[] tokens = super.tokenize(rawString, ";");
 
         int id = Integer.parseInt(tokens[0]);
         int nbrOfCriteria = Integer.parseInt(tokens[1]);
 
-        ArrayList<Integer> criteriaIds = new ArrayList<Integer>();
+        ArrayList<CriteriaCard> criterias = new ArrayList<CriteriaCard>();
         for (int i = 0; i < nbrOfCriteria; i++) {
-            int criteriaId = Integer.parseInt(tokens[2 + i]);
-            criteriaIds.add(criteriaId);
+            String[] criteriaTokens = super.tokenize(tokens[2 + i], ":");
+            int criteriaId = Integer.parseInt(criteriaTokens[0]);
+            int criteriaIdx = Integer.parseInt(criteriaTokens[1]);
+            CriteriaCard critCard = CriteriaCardGenerator.generateCriteriaCard(criteriaId, criteriaIdx);
+            criterias.add(critCard);
         }
 
         int answerInt = Integer.parseInt(tokens[2 + nbrOfCriteria]);
         PunchCard answer = new PunchCard(answerInt);
 
-        Problem problem = new Problem(id, criteriaIds, answer);
+        Problem problem = new Problem(id, criterias, answer);
         return problem;
     }
 
-    public ArrayList<Problem> getProblems(String filename) {
+    public ArrayList<Problem> getProblems() {
         ArrayList<Problem> problems = new ArrayList<Problem>();
 
-        while (fileLiterator.hasNextLine(scanner)) {
-            String rawString = fileLiterator.readLine(scanner);
+        while (fileLiterator.hasNextLine(super.scanner)) {
+            String rawString = fileLiterator.readLine(super.scanner);
             Problem problem = parseProblem(rawString);
             problems.add(problem);
         }

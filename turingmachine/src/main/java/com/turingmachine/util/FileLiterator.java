@@ -19,7 +19,8 @@ public class FileLiterator {
             File file = new File(this.filename);
             return new Scanner(file);
         } catch (FileNotFoundException e) {
-            System.err.println("An error occured");
+            //TODO: throw custom exception instead
+            System.err.println("An error occured while reading the file.");
             e.printStackTrace();
             return null;
         }
@@ -52,6 +53,7 @@ public class FileLiterator {
             }
             return new FileWriter(this.filename);
         } catch (IOException e) {
+            //TODO: throw custom exception instead
             System.out.println("An error occurred.");
             e.printStackTrace();
         }

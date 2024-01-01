@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0" stylesheets="@player-menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.PlayerMenuController">
+   <children>
+      <Label layoutX="72.0" layoutY="14.0" text="Turing Machine">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Button layoutX="162.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#selectSolo" text="Solo" />
+      <Button layoutX="489.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#select4Player" text="4 joueurs" />
+      <Button layoutX="366.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#select3Player" text="3 joueurs" />
+      <Button layoutX="237.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#select2Player" text="2 joueurs" />
+      <Label layoutX="206.0" layoutY="204.0" text="Choisissez le nombre de joueurs">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="348.0" layoutY="592.0" mnemonicParsing="false" onMouseClicked="#backToMainMenu" text="Menu" />
+   </children>
+</AnchorPane>
