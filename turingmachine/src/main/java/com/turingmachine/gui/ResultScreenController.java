@@ -56,7 +56,7 @@ public class ResultScreenController implements Initializable {
         System.out.println("idxList.size = " + idxList.size());
         if (idxList.size() == 1) {
             // easy case, he wins the game
-            Player winner = game.getPlayers().get(idxList.get(0)); 
+            Player winner = game.getPlayerFini().get(idxList.get(0)); 
             lbl.setText(winner.getUsername() + " a gagné la partie.");
             btn.setOnMouseClicked(e -> {
                 game.erase();
@@ -69,7 +69,7 @@ public class ResultScreenController implements Initializable {
         } else if (idxList.size() > 1) {
             ArrayList<Player> winners = new ArrayList<Player>();
             for (int idx : idxList) {
-                winners.add(game.getPlayers().get(idx));
+                winners.add(game.getPlayerFini().get(idx));
             }
             winners.sort(Comparator.comparing(Player::getTestCount));
             Player winner = winners.get(0); // winner
