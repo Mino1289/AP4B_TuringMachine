@@ -21,7 +21,6 @@ public class Game {
     private DifficultyLevel difficultyLevel;
     private Problem problem;
     private int playerToPlay = 0;
-    private int testCounterCurrentPlayerLeft = 3;
     private ArrayList<Player> playerfini = new ArrayList<Player>();
 
     public static Game getInstance() {
@@ -104,20 +103,12 @@ public class Game {
     }
 
     public void nextPlayer() {
-        this.testCounterCurrentPlayerLeft = 3;
+        this.players.get(this.playerToPlay).resetCurrentTestCount();
         this.playerToPlay = (this.playerToPlay + 1) % this.numberOfPlayers;
     }
 
     public boolean sameManche() {
         return (this.playerToPlay + 1 - this.numberOfPlayers) != 0;
-    }
-
-    public boolean canCheckAnotherCriteria() {
-        return testCounterCurrentPlayerLeft != 0;
-    }
-
-    public void decrementTestCounter() {
-        this.testCounterCurrentPlayerLeft--;
     }
 
     public void setPlayerFini(Player player) {
@@ -141,6 +132,5 @@ public class Game {
         this.usernameTextFieds.clear();
         this.playerfini.clear();
         this.playerToPlay = 0;
-        this.testCounterCurrentPlayerLeft = 3;
     }
 }

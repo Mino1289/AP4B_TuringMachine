@@ -52,12 +52,13 @@ public class CriteriaCardSelectionController implements Initializable {
             selectedImage.setFitHeight(200);
 
             selectedImage.setOnMouseClicked(e -> {
-                if (game.canCheckAnotherCriteria()) {
+                if (currentPlayer.canCheckAnotherCriteria()) {
                     // System.out.println(critCard.getId() + "   " + critCard.getIdx());
                     boolean answer = critCard.verify(currentPlayer.getPunchCard());
                   
-                    game.decrementTestCounter();
-                    game.getPlayers().get(ptp).incrementTestCount();
+                    currentPlayer.decrementCurrentTestCounter();
+                    currentPlayer.incrementTestCount();
+                    
                     selectedImage.setOnMouseClicked(null);
                     selectedImage.setStyle("-fx-opacity: 0.5");
                     ImageView resultImageView = new ImageView();
