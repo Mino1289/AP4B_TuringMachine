@@ -32,7 +32,7 @@ public class ValidateScreenController implements Initializable {
             Button pButton = new Button("J'ai trouvé !");
             pButton.setOnMouseClicked(e -> {
                 pButton.setOnMouseClicked(null);
-                game.setPlayerFini(player);
+                game.setPlayerTerminated(player);
             });
             myGridPane.add(pLabel, i, 0);
             myGridPane.add(pButton, i, 1);
@@ -50,7 +50,7 @@ public class ValidateScreenController implements Initializable {
 
     @FXML
     public void validate() throws IOException {
-        if (Game.getInstance().getPlayerFini().size() == 0) {
+        if (Game.getInstance().getPlayerTerminated().size() == 0) {
             Game.getInstance().nextPlayer();
             TuringMachine.setRoot("punchcard-selection");
         } else {

@@ -21,7 +21,7 @@ public class Game {
     private DifficultyLevel difficultyLevel;
     private Problem problem;
     private int playerToPlay = 0;
-    private ArrayList<Player> playerfini = new ArrayList<Player>();
+    private ArrayList<Player> playerTerminated = new ArrayList<Player>();
 
     public static Game getInstance() {
         return instance;
@@ -56,6 +56,7 @@ public class Game {
         this.problem = problems.get((int) (Math.random() * problemCount));
     }
 
+    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
     public void setDifficultyLevel(DifficultyLevel _difficultyLevel) {
         this.difficultyLevel = _difficultyLevel;
     }
@@ -64,6 +65,7 @@ public class Game {
         return this.problem;
     }
 
+    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
     public void setNumberOfPlayers(int _numberOfPlayers) {
         this.numberOfPlayers = _numberOfPlayers;
     }
@@ -72,45 +74,55 @@ public class Game {
         return this.players;
     }
 
+    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
     public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
+    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
     public void addUsernameTextField(TextField tf) {
         this.usernameTextFieds.add(tf);
     }
 
+    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
     public ArrayList<TextField> getUsernameTextFieds() {
         return usernameTextFieds;
     }
 
+    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
     public void addPlayer(Player player) {
         this.players.add(player);
     }
 
+    // used to determine which player's turn is.
     public void setPlayerToPlay(int pl) {
         this.playerToPlay = pl;
     }
 
+    // used to determine which player's turn is.
     public int getPlayerToPlay() {
         return this.playerToPlay;
     }
 
+    // used to determine which player's turn is.
     public void nextPlayer() {
         this.players.get(this.playerToPlay).resetCurrentTestCount();
         this.playerToPlay = (this.playerToPlay + 1) % this.numberOfPlayers;
     }
 
-    public boolean sameManche() {
+    // used to determine which player's turn is.
+    public boolean sameRound() {
         return (this.playerToPlay + 1 - this.numberOfPlayers) != 0;
     }
 
-    public void setPlayerFini(Player player) {
-        this.playerfini.add(player);
+    // used to know who is terminated
+    public void setPlayerTerminated(Player player) {
+        this.playerTerminated.add(player);
     }
 
-    public ArrayList<Player> getPlayerFini() {
-        return this.playerfini;
+    // used to know who is terminated
+    public ArrayList<Player> getPlayerTerminated() {
+        return this.playerTerminated;
     }
 
     public void start() {
@@ -121,10 +133,11 @@ public class Game {
         //System.out.println(this.problem.getId());
     }
 
+    // after a game, we want to erase everything, to restart or not another game.
     public void erase() {
         this.players.clear();
         this.usernameTextFieds.clear();
-        this.playerfini.clear();
+        this.playerTerminated.clear();
         this.playerToPlay = 0;
     }
 }

@@ -85,7 +85,7 @@ public class CriteriaCardSelectionController implements Initializable {
     @FXML
     public void next() throws IOException {
         Game game = Game.getInstance();
-        if (game.sameManche()) {
+        if (game.sameRound()) {
             // dans la même manche
             game.nextPlayer();
             TuringMachine.setRoot("punchcard-selection");

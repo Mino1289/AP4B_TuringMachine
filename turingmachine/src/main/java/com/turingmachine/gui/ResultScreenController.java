@@ -31,7 +31,7 @@ public class ResultScreenController implements Initializable {
         GridPane myGridPane = new GridPane();
 
         int i = 0, j = 0;
-        for (Player player : game.getPlayerFini()) {
+        for (Player player : game.getPlayerTerminated()) {
             boolean answer = game.getProblem().verify(player.getPunchCard());
             answerList.add(answer);
             if (answer) {
@@ -56,7 +56,7 @@ public class ResultScreenController implements Initializable {
         System.out.println("idxList.size = " + idxList.size());
         if (idxList.size() == 1) {
             // easy case, he wins the game
-            Player winner = game.getPlayerFini().get(idxList.get(0)); 
+            Player winner = game.getPlayerTerminated().get(idxList.get(0)); 
             lbl.setText(winner.getUsername() + " a gagné la partie.");
             btn.setOnMouseClicked(e -> {
                 game.erase();
@@ -69,7 +69,7 @@ public class ResultScreenController implements Initializable {
         } else if (idxList.size() > 1) {
             ArrayList<Player> winners = new ArrayList<Player>();
             for (int idx : idxList) {
-                winners.add(game.getPlayerFini().get(idx));
+                winners.add(game.getPlayerTerminated().get(idx));
             }
             winners.sort(Comparator.comparing(Player::getTestCount));
             Player winner = winners.get(0); // winner
@@ -85,11 +85,11 @@ public class ResultScreenController implements Initializable {
         } else if (idxList.size() == 0) {
             // ?? they tried, they lost: remove those who lost from the game
             lbl.setText("Personne n'a gagné, joueurs éliminé");
-            game.getPlayerFini().forEach(player -> {
+            game.getPlayerTerminated().forEach(player -> {
                 game.getPlayers().remove(player);
             });
             // black magic 'cause we removed some players
-            game.getPlayerFini().clear();
+            game.getPlayerTerminated().clear();
             int size = game.getPlayers().size();
             if (size == 0) {
                 // ALED there is no one to play
