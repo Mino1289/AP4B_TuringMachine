@@ -28,49 +28,32 @@ public class ResultScreenController implements Initializable {
 
         ArrayList<Boolean> answerList = new ArrayList<Boolean>();
         ArrayList<Integer> idxList = new ArrayList<Integer>();
-        int i = 0;
+        GridPane myGridPane = new GridPane();
+
+        int i = 0, j = 0;
         for (Player player : game.getPlayerFini()) {
             boolean answer = game.getProblem().verify(player.getPunchCard());
             answerList.add(answer);
             if (answer) {
                 idxList.add(i);
             }
-            i++;
-        }
-        GridPane myGridPane = new GridPane();
-        i = 0;
-        for (Player player : game.getPlayerFini()) {
+
             ImageView resultImageView = new ImageView();
-            boolean answer = game.getProblem().verify(player.getPunchCard());
-            Label pLabel = new Label(player.getUsername() + (answer ? ", tu as trouvé le bon code en: " + player.getTestCount() + " test de critères."  : ", tu n'as pas trouvé le bon code."));
+            Label pLabel = new Label(player.getUsername() + (answer ? ", tu as trouvé le bon code\n\t" + player.getTestCount() + " test de critères."  : ", tu n'as pas trouvé le bon code."));
             
-            //TODO: Determine who won if multiple winner (the one with the less try)
-            //TODO: Remove all the loosers
             
-            // if (answer) {
-            //     Label lbl = new Label("Fin de la partie");
-            //     Button btn = new Button("Retour au menu");
-            //     btn.setOnMouseClicked(e -> { 
-            //         try {
-            //             TuringMachine.setRoot("main-menu");
-            //         } catch(IOException exep) {
-            //             exep.printStackTrace();
-            //         }
-            //     });
-            //     lbl.setLayoutX(400);
-            //     lbl.setLayoutY(320);
-            //     btn.setLayoutX(400);
-            //     btn.setLayoutY(520);
-            //     myPane.getChildren().addAll(lbl, btn);
-            // }
             Image resultImage = new Image(ResultScreenController.class.getResource((answer ? "true.png" : "false.png")).toString());
             resultImageView.setImage(resultImage);
             resultImageView.setPreserveRatio(true);
-            myGridPane.addColumn(i, pLabel, resultImageView);
+            myGridPane.addColumn(j, pLabel, resultImageView);
+            
             i++;
+            j++;
         }
+
         Label lbl = new Label();
         Button btn = new Button("Suivant");
+        System.out.println("idxList.size = " + idxList.size());
         if (idxList.size() == 1) {
             // easy case, he wins the game
             Player winner = game.getPlayers().get(idxList.get(0)); 

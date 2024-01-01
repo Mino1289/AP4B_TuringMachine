@@ -60,12 +60,6 @@ public class Game {
         this.difficultyLevel = _difficultyLevel;
     }
 
-    public void setPlayers(ArrayList<Player> _players) {
-        if (_players.size() >= 1 && _players.size() >= 4) {
-            this.players = _players;
-        }
-    }
-
     public Problem getProblem() {
         return this.problem;
     }
