@@ -12,17 +12,19 @@ public class Game {
     private static final String MEDIUM_PROBLEMS_PATH = PROBLEMS_PATH + "medium.txt";
     private static final String HARD_PROBLEMS_PATH = PROBLEMS_PATH + "hard.txt";
 
-    private static Game instance = new Game();
-
     private ArrayList<Player> players = new ArrayList<Player>();
+    private Problem problem;
+    
     private ArrayList<TextField> usernameTextFieds = new ArrayList<TextField>();
-
     private int numberOfPlayers;
     private DifficultyLevel difficultyLevel;
-    private Problem problem;
+    
+    
     private int playerToPlay = 0;
     private ArrayList<Player> playerTerminated = new ArrayList<Player>();
-
+    
+    private static Game instance = new Game();
+    
     public static Game getInstance() {
         return instance;
     }
