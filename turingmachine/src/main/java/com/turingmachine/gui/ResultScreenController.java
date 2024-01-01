@@ -100,22 +100,36 @@ public class ResultScreenController implements Initializable {
             });
         } else if (idxList.size() == 0) {
             // ?? they tried, they lost: remove those who lost from the game
-            lbl.setText("Personne n'a gagné, vous êtes tous éliminé");
+            lbl.setText("Personne n'a gagné, joueurs éliminé");
             singleton.getPlayerFini().forEach(player -> {
                 singleton.getPlayers().remove(player);
             });
             // black magic 'cause we removed some players
             singleton.getPlayerFini().clear();
-            singleton.setNumberOfPlayers(singleton.getPlayers().size());
-            singleton.nextPlayer();
-            singleton.setPlayerToPlay(0);
-            btn.setOnMouseClicked(e -> {
-                try {
-                    TuringMachine.setRoot("punchcard-selection");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                } 
-            });
+            int size = singleton.getPlayers().size();
+            if (size == 0) {
+                // ALED there is no one to play
+                btn.setOnMouseClicked(e -> {
+                    try {
+                        // clear the game
+                        singleton.erase();
+                        TuringMachine.setRoot("main-menu");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    } 
+                });
+            } else {
+                singleton.setNumberOfPlayers(size);
+                singleton.nextPlayer();
+                singleton.setPlayerToPlay(0);
+                btn.setOnMouseClicked(e -> {
+                    try {
+                        TuringMachine.setRoot("punchcard-selection");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    } 
+                });
+            }
         }
         lbl.setLayoutX(400);
         lbl.setLayoutY(320);
