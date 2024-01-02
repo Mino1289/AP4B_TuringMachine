@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import com.turingmachine.core.CriteriaCard;
 import com.turingmachine.core.Player;
+import com.turingmachine.core.Game;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,9 +26,9 @@ public class CriteriaCardSelectionController implements Initializable {
     
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-        Singleton singleton = Singleton.getInstance();
-        int ptp = singleton.getPlayerToPlay();
-        Player currentPlayer = singleton.getPlayers().get(ptp);
+        Game game = Game.getInstance();
+        int ptp = game.getPlayerToPlay();
+        Player currentPlayer = game.getPlayers().get(ptp);
         Label usernameLabel = new Label(currentPlayer.getUsername() + "  " + currentPlayer.getTestCount());
         Label punchCardLabel = new Label(currentPlayer.getPunchCard().toString());
 
@@ -39,7 +40,7 @@ public class CriteriaCardSelectionController implements Initializable {
 
         GridPane mygpane = new GridPane();
         int i = 0;
-        ArrayList<CriteriaCard> critCards = singleton.getGame().getProblem().getCriterias();
+        ArrayList<CriteriaCard> critCards = game.getProblem().getCriterias();
         System.out.println(critCards.size());
         for (CriteriaCard critCard : critCards) {
             // System.out.println(critCard.getId());
@@ -51,12 +52,13 @@ public class CriteriaCardSelectionController implements Initializable {
             selectedImage.setFitHeight(200);
 
             selectedImage.setOnMouseClicked(e -> {
-                if (singleton.canCheckAnotherCriteria()) {
+                if (currentPlayer.canCheckAnotherCriteria()) {
                     // System.out.println(critCard.getId() + "   " + critCard.getIdx());
                     boolean answer = critCard.verify(currentPlayer.getPunchCard());
                   
-                    singleton.decrementTestCounter();
-                    singleton.getPlayers().get(ptp).incrementTestCount();
+                    currentPlayer.decrementCurrentTestCounter();
+                    currentPlayer.incrementTestCount();
+                    
                     selectedImage.setOnMouseClicked(null);
                     selectedImage.setStyle("-fx-opacity: 0.5");
                     ImageView resultImageView = new ImageView();
@@ -82,10 +84,10 @@ public class CriteriaCardSelectionController implements Initializable {
 
     @FXML
     public void next() throws IOException {
-        Singleton singleton = Singleton.getInstance();
-        if (singleton.sameManche()) {
+        Game game = Game.getInstance();
+        if (game.sameRound()) {
             // dans la même manche
-            singleton.nextPlayer();
+            game.nextPlayer();
             TuringMachine.setRoot("punchcard-selection");
         } else {
             // on change de manche

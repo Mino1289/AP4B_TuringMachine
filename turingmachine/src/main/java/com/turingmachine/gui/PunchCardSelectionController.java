@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.turingmachine.core.CriteriaCard;
+import com.turingmachine.core.Game;
 import com.turingmachine.core.Player;
 import com.turingmachine.core.PunchCard;
 
@@ -36,8 +37,8 @@ public class PunchCardSelectionController implements Initializable {
         int pValue = purple.getValue();
 
 
-        Singleton singleton = Singleton.getInstance();
-        Player player = singleton.getPlayers().get(singleton.getPlayerToPlay());
+        Game game = Game.getInstance();
+        Player player = game.getPlayers().get(game.getPlayerToPlay());
         player.setPunchCard(new PunchCard(bValue, yValue, pValue));
         // setCurrentPunchCard(bValue, yValue, pValue);
         TuringMachine.setRoot("criteria-card-selection");
@@ -46,19 +47,19 @@ public class PunchCardSelectionController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
         // create a Label with the username of the player
-        Singleton singleton = Singleton.getInstance();
-        System.out.println(singleton.getPlayerToPlay());
-        for (Player player: singleton.getPlayers()) {
+        Game game = Game.getInstance();
+        System.out.println(game.getPlayerToPlay());
+        for (Player player: game.getPlayers()) {
             System.out.println(player.getUsername());
         }
 
-        Label usernameLabel = new Label(singleton.getPlayers().get(singleton.getPlayerToPlay()).getUsername());
+        Label usernameLabel = new Label(game.getPlayers().get(game.getPlayerToPlay()).getUsername());
         usernameLabel.setLayoutX(25);
         usernameLabel.setLayoutY(175);
 
         GridPane mygpane = new GridPane();
         int i = 0;
-        ArrayList<CriteriaCard> critCards = singleton.getGame().getProblem().getCriterias();
+        ArrayList<CriteriaCard> critCards = game.getProblem().getCriterias();
         System.out.println(critCards.size());
         for (CriteriaCard critCard : critCards) {
             // System.out.println(critCard.getId());

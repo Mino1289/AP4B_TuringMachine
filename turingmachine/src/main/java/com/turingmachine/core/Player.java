@@ -2,6 +2,7 @@ package com.turingmachine.core;
 
 public class Player {
     private int testCount;
+    private int currentTestCount = 3;
     private String username;
     private PunchCard punchCard;
 
@@ -28,5 +29,17 @@ public class Player {
 
     public PunchCard getPunchCard() {
         return this.punchCard;
+    }
+
+    public void resetCurrentTestCount() {
+        this.currentTestCount = 3;
+    }
+
+    public boolean canCheckAnotherCriteria() {
+        return this.currentTestCount != 0;
+    }
+
+    public void decrementCurrentTestCounter() {
+        this.currentTestCount--;
     }
 }
