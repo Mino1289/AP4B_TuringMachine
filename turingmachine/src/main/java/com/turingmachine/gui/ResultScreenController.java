@@ -29,7 +29,7 @@ public class ResultScreenController implements Initializable {
         ArrayList<Boolean> answerList = new ArrayList<Boolean>();
         ArrayList<Integer> idxList = new ArrayList<Integer>();
         GridPane myGridPane = new GridPane();
-
+        myGridPane.setHgap(20);
         int i = 0, j = 0;
         for (Player player : game.getPlayerTerminated()) {
             boolean answer = game.getProblem().verify(player.getPunchCard());
@@ -115,12 +115,12 @@ public class ResultScreenController implements Initializable {
                 });
             }
         }
-        lbl.setLayoutX(350);
+        lbl.setLayoutX(330);
         lbl.setLayoutY(250);
         btn.setLayoutX(350);
         btn.setLayoutY(650);
-        myGridPane.setLayoutX(300);
-        myGridPane.setLayoutY(125);
+        myGridPane.setLayoutX(50);
+        myGridPane.setLayoutY(50);
         
         myPane.getChildren().addAll(myGridPane, lbl, btn);
     }

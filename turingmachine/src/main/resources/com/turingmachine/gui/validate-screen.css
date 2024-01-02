@@ -1,5 +1,5 @@
 AnchorPane {
-    -fx-background-image: url('coffre.png');
+    -fx-background-image: url('open.png');
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
 }
@@ -7,8 +7,9 @@ AnchorPane {
 
 Label {
     -fx-font-family: "Impact";
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #000000;
 }
+
 
 Button {
     -fx-font-family: "Impact";
@@ -17,3 +18,9 @@ Button {
     -fx-font-size: 18px; 
     -fx-background-radius: 30px;
 }
+
+Button:hover {
+    -fx-background-color: #fffffe; 
+    -fx-text-fill: #000000; 
+
+}   
