@@ -6,6 +6,7 @@ AnchorPane {
 
 
 Label {
+    -fx-font-size: 12px;
     -fx-font-family: "Impact";
     -fx-text-fill: #000000;
 }
