@@ -14,22 +14,22 @@ public class Game {
 
     private ArrayList<Player> players = new ArrayList<Player>();
     private Problem problem;
-    
+
     private ArrayList<TextField> usernameTextFieds = new ArrayList<TextField>();
     private int numberOfPlayers;
     private DifficultyLevel difficultyLevel;
-    
-    
+
     private int playerToPlay = 0;
+    private int playerToChoose = 0;
     private ArrayList<Player> playerTerminated = new ArrayList<Player>();
-    
+
     private static Game instance = new Game();
-    
+
     public static Game getInstance() {
         return instance;
     }
-    
-    //TODO: delete
+
+    // TODO: delete
     public Game() {
     }
 
@@ -50,7 +50,7 @@ public class Game {
                 problemParser = new ProblemParser(HARD_PROBLEMS_PATH);
                 break;
             default:
-            //TODO: create custom exception
+                // TODO: create custom exception
                 throw new IllegalArgumentException("Unexpected value: " + _difficultyLevel);
         }
         ArrayList<Problem> problems = problemParser.getProblems();
@@ -58,7 +58,8 @@ public class Game {
         this.problem = problems.get((int) (Math.random() * problemCount));
     }
 
-    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
+    // used for the UI component, so we can retrieve information between scenes.
+    // Before the Game is "really" initialized.
     public void setDifficultyLevel(DifficultyLevel _difficultyLevel) {
         this.difficultyLevel = _difficultyLevel;
     }
@@ -67,7 +68,8 @@ public class Game {
         return this.problem;
     }
 
-    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
+    // used for the UI component, so we can retrieve information between scenes.
+    // Before the Game is "really" initialized.
     public void setNumberOfPlayers(int _numberOfPlayers) {
         this.numberOfPlayers = _numberOfPlayers;
     }
@@ -76,22 +78,26 @@ public class Game {
         return this.players;
     }
 
-    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
+    // used for the UI component, so we can retrieve information between scenes.
+    // Before the Game is "really" initialized.
     public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
-    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
+    // used for the UI component, so we can retrieve information between scenes.
+    // Before the Game is "really" initialized.
     public void addUsernameTextField(TextField tf) {
         this.usernameTextFieds.add(tf);
     }
 
-    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
+    // used for the UI component, so we can retrieve information between scenes.
+    // Before the Game is "really" initialized.
     public ArrayList<TextField> getUsernameTextFieds() {
         return usernameTextFieds;
     }
 
-    // used for the UI component, so we can retrieve information between scenes. Before the Game is "really" initialized.
+    // used for the UI component, so we can retrieve information between scenes.
+    // Before the Game is "really" initialized.
     public void addPlayer(Player player) {
         this.players.add(player);
     }
@@ -123,16 +129,30 @@ public class Game {
     }
 
     // used to know who is terminated
-    public ArrayList<Player> getPlayerTerminated() {
+    public ArrayList<Player> getPlayersTerminated() {
         return this.playerTerminated;
+    }
+
+    public int getPlayerToChoose() {
+        return this.playerToChoose;
+    }
+
+    public void setPlayerToChoose(int pl) {
+        this.playerToChoose = pl;
+    }
+
+    public void nextPlayerToChoose() {
+        this.playerToChoose++;
     }
 
     public void start() {
         instance = new Game(this.players, this.difficultyLevel);
-        /* ProblemParser problemParser = new ProblemParser(
-                "turingmachine/src/main/resources/com/turingmachine/core/problems.txt");
-        this.problem = problemParser.getProblems().get(0); // get the first problem */
-        //System.out.println(this.problem.getId());
+        /*
+         * ProblemParser problemParser = new ProblemParser(
+         * "turingmachine/src/main/resources/com/turingmachine/core/problems.txt");
+         * this.problem = problemParser.getProblems().get(0); // get the first problem
+         */
+        // System.out.println(this.problem.getId());
     }
 
     // after a game, we want to erase everything, to restart or not another game.
@@ -141,5 +161,6 @@ public class Game {
         this.usernameTextFieds.clear();
         this.playerTerminated.clear();
         this.playerToPlay = 0;
+        this.playerToChoose = 0;
     }
 }
