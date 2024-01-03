@@ -31,7 +31,7 @@ public class ResultScreenController implements Initializable {
         GridPane myGridPane = new GridPane();
         myGridPane.setHgap(20);
         int i = 0, j = 0;
-        for (Player player : game.getPlayerTerminated()) {
+        for (Player player : game.getPlayersTerminated()) {
             boolean answer = game.getProblem().verify(player.getPunchCard());
             answerList.add(answer);
             if (answer) {
@@ -39,14 +39,16 @@ public class ResultScreenController implements Initializable {
             }
 
             ImageView resultImageView = new ImageView();
-            Label pLabel = new Label(player.getUsername() + (answer ? ", tu as trouvé le bon code\n\t" + player.getTestCount() + " test de critères."  : ", tu n'as pas trouvé le bon code."));
-            
-            
-            Image resultImage = new Image(ResultScreenController.class.getResource((answer ? "true.png" : "false.png")).toString());
+            Label pLabel = new Label(player.getUsername()
+                    + (answer ? ", tu as trouvé le bon code\n\t" + player.getTestCount() + " test de critères."
+                            : ", tu n'as pas trouvé le bon code."));
+
+            Image resultImage = new Image(
+                    ResultScreenController.class.getResource((answer ? "true.png" : "false.png")).toString());
             resultImageView.setImage(resultImage);
             resultImageView.setPreserveRatio(true);
             myGridPane.addColumn(j, pLabel, resultImageView);
-            
+
             i++;
             j++;
         }
@@ -56,7 +58,7 @@ public class ResultScreenController implements Initializable {
         System.out.println("idxList.size = " + idxList.size());
         if (idxList.size() == 1) {
             // easy case, he wins the game
-            Player winner = game.getPlayerTerminated().get(idxList.get(0)); 
+            Player winner = game.getPlayersTerminated().get(idxList.get(0));
             lbl.setText(winner.getUsername() + " a gagné la partie.");
             btn.setOnMouseClicked(e -> {
                 game.erase();
@@ -64,12 +66,12 @@ public class ResultScreenController implements Initializable {
                     TuringMachine.setRoot("main-menu");
                 } catch (IOException ex) {
                     ex.printStackTrace();
-                } 
+                }
             });
         } else if (idxList.size() > 1) {
             ArrayList<Player> winners = new ArrayList<Player>();
             for (int idx : idxList) {
-                winners.add(game.getPlayerTerminated().get(idx));
+                winners.add(game.getPlayersTerminated().get(idx));
             }
             winners.sort(Comparator.comparing(Player::getTestCount));
             Player winner = winners.get(0); // winner
@@ -80,16 +82,17 @@ public class ResultScreenController implements Initializable {
                     TuringMachine.setRoot("main-menu");
                 } catch (IOException ex) {
                     ex.printStackTrace();
-                } 
+                }
             });
         } else if (idxList.size() == 0) {
             // ?? they tried, they lost: remove those who lost from the game
             lbl.setText("Personne n'a gagné, joueurs éliminé");
-            game.getPlayerTerminated().forEach(player -> {
+            game.getPlayersTerminated().forEach(player -> {
                 game.getPlayers().remove(player);
             });
             // black magic 'cause we removed some players
-            game.getPlayerTerminated().clear();
+            game.getPlayersTerminated().clear();
+            game.setPlayerToChoose(0);
             int size = game.getPlayers().size();
             if (size == 0) {
                 // ALED there is no one to play
@@ -100,10 +103,16 @@ public class ResultScreenController implements Initializable {
                         TuringMachine.setRoot("main-menu");
                     } catch (IOException ex) {
                         ex.printStackTrace();
-                    } 
+                    }
                 });
-            } else {
+            } /*else if (size == 1){
+                // solo = no one to play against = win
+            } */else {
+                for (Player player : game.getPlayers()) {
+                    player.resetCurrentTestCount();
+                }
                 game.setNumberOfPlayers(size);
+                game.setPlayerToPlay(0);
                 game.nextPlayer();
                 game.setPlayerToPlay(0);
                 btn.setOnMouseClicked(e -> {
@@ -111,7 +120,7 @@ public class ResultScreenController implements Initializable {
                         TuringMachine.setRoot("punchcard-selection");
                     } catch (IOException ex) {
                         ex.printStackTrace();
-                    } 
+                    }
                 });
             }
         }
@@ -121,7 +130,7 @@ public class ResultScreenController implements Initializable {
         btn.setLayoutY(650);
         myGridPane.setLayoutX(50);
         myGridPane.setLayoutY(50);
-        
+
         myPane.getChildren().addAll(myGridPane, lbl, btn);
     }
 }
