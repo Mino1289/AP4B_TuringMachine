@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="myPane" maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0" stylesheets="@punchcard-selection.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.ValidatePunchCardController">
+<AnchorPane fx:id="myPane" maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0" stylesheets="@punchcard-selection.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.ValidatePunchCardController">
    <children>
       <Label layoutX="270.0" layoutY="318.0" text="Choisissez le code à vérifier">
          <font>
