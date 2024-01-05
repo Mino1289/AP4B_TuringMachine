@@ -15,7 +15,7 @@ public class Game {
     private ArrayList<Player> players = new ArrayList<Player>();
     private Problem problem;
 
-    private ArrayList<TextField> usernameTextFieds = new ArrayList<TextField>();
+    private ArrayList<TextField> usernameTextFields = new ArrayList<TextField>();
     private int numberOfPlayers;
     private DifficultyLevel difficultyLevel;
 
@@ -87,13 +87,13 @@ public class Game {
     // used for the UI component, so we can retrieve information between scenes.
     // Before the Game is "really" initialized.
     public void addUsernameTextField(TextField tf) {
-        this.usernameTextFieds.add(tf);
+        this.usernameTextFields.add(tf);
     }
 
     // used for the UI component, so we can retrieve information between scenes.
     // Before the Game is "really" initialized.
-    public ArrayList<TextField> getUsernameTextFieds() {
-        return usernameTextFieds;
+    public ArrayList<TextField> getUsernameTextFields() {
+        return usernameTextFields;
     }
 
     // used for the UI component, so we can retrieve information between scenes.
@@ -158,7 +158,7 @@ public class Game {
     // after a game, we want to erase everything, to restart or not another game.
     public void erase() {
         this.players.clear();
-        this.usernameTextFieds.clear();
+        this.usernameTextFields.clear();
         this.playerTerminated.clear();
         this.playerToPlay = 0;
         this.playerToChoose = 0;

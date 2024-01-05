@@ -16,12 +16,12 @@ import javafx.scene.layout.GridPane;
 public class UsernameController implements Initializable {
     @FXML
     private AnchorPane myPane;
-    
+
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
         Game game = Game.getInstance();
         GridPane gPane = new GridPane();
-        game.getUsernameTextFieds().clear();
+        game.getUsernameTextFields().clear();
         for (int i = 0; i < game.getNumberOfPlayers(); i++) {
             TextField tf = new TextField();
             gPane.addRow(i, tf);
@@ -49,9 +49,9 @@ public class UsernameController implements Initializable {
         // for each text field, get the text
         // if the text is empty, then show an error message
         // else, go to the next screen
-        
+
         Game game = Game.getInstance();
-        for (TextField tf : game.getUsernameTextFieds()) {
+        for (TextField tf : game.getUsernameTextFields()) {
             if (tf.getText().isEmpty()) {
                 return;
             }
