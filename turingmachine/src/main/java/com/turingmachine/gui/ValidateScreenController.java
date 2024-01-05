@@ -20,7 +20,6 @@ public class ValidateScreenController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("ValidateScreen started initalize");
         GridPane myGridPane = new GridPane();
         Game game = Game.getInstance();
 
@@ -44,7 +43,6 @@ public class ValidateScreenController implements Initializable {
         myGridPane.setLayoutY(150);
 
         myPane.getChildren().addAll(myGridPane);
-        System.out.println("ValidateScreen initialized");
     }
 
     @FXML

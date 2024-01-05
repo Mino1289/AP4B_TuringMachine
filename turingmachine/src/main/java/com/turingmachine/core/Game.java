@@ -152,7 +152,6 @@ public class Game {
          * "turingmachine/src/main/resources/com/turingmachine/core/problems.txt");
          * this.problem = problemParser.getProblems().get(0); // get the first problem
          */
-        // System.out.println(this.problem.getId());
     }
 
     // after a game, we want to erase everything, to restart or not another game.

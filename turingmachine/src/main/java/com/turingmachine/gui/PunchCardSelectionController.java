@@ -48,10 +48,6 @@ public class PunchCardSelectionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // create a Label with the username of the player
         Game game = Game.getInstance();
-        System.out.println(game.getPlayerToPlay());
-        for (Player player: game.getPlayers()) {
-            System.out.println(player.getUsername());
-        }
 
         Label usernameLabel = new Label(game.getPlayers().get(game.getPlayerToPlay()).getUsername());
         usernameLabel.setLayoutX(25);
@@ -60,9 +56,7 @@ public class PunchCardSelectionController implements Initializable {
         GridPane mygpane = new GridPane();
         int i = 0;
         ArrayList<CriteriaCard> critCards = game.getProblem().getCriterias();
-        System.out.println(critCards.size());
         for (CriteriaCard critCard : critCards) {
-            // System.out.println(critCard.getId());
             ImageView selectedImage = new ImageView();
             Image image = new Image(PunchCardSelectionController.class.getResource("imgs/" + critCard.getId() + ".png").toString());
             selectedImage.setImage(image);
@@ -70,7 +64,7 @@ public class PunchCardSelectionController implements Initializable {
             selectedImage.setFitWidth(200);
             selectedImage.setFitHeight(200);
             // mygpane.add(selectedImage, i >= 3 ? i-3 : i, i >= 3 ? 1 : 0);
-            mygpane.add(selectedImage, critCards.size() > 4 ? (i >= 3 ? i-3 : i) : i,  critCards.size() > 4 && i >= 3 ? 1 : 0);
+            mygpane.add(selectedImage, critCards.size() >= 4 ? (i >= 3 ? i-3 : i) : i,  i >= 3 ? 1 : 0);
             i++;
         }
         // mygpane.setLayoutX(25);
@@ -78,6 +72,5 @@ public class PunchCardSelectionController implements Initializable {
 
         this.myPane.getChildren().addAll(mygpane, usernameLabel);
 
-        System.out.println("PunchCardSelectionController initialized");
     }
 }

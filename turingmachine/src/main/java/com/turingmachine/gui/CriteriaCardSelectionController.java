@@ -44,9 +44,7 @@ public class CriteriaCardSelectionController implements Initializable {
         GridPane mygpane = new GridPane();
         int i = 0;
         ArrayList<CriteriaCard> critCards = game.getProblem().getCriterias();
-        System.out.println(critCards.size());
         for (CriteriaCard critCard : critCards) {
-            // System.out.println(critCard.getId());
             ImageView selectedImage = new ImageView();
             Image critImage = new Image(CriteriaCardSelectionController.class.getResource("imgs/" + critCard.getId() + ".png").toString());
             selectedImage.setImage(critImage);
@@ -56,7 +54,6 @@ public class CriteriaCardSelectionController implements Initializable {
 
             selectedImage.setOnMouseClicked(e -> {
                 if (currentPlayer.canCheckAnotherCriteria()) {
-                    // System.out.println(critCard.getId() + "   " + critCard.getIdx());
                     boolean answer = critCard.verify(currentPlayer.getPunchCard());
                   
                     currentPlayer.decrementCurrentTestCounter();
@@ -70,19 +67,18 @@ public class CriteriaCardSelectionController implements Initializable {
                     resultImageView.setPreserveRatio(true);
                     resultImageView.setFitWidth(32);
                     resultImageView.setFitHeight(32);
-                    resultImageView.setX(selectedImage.getLayoutX() + 75);
-                    resultImageView.setY(selectedImage.getLayoutY() + 250);
+                    resultImageView.setX(selectedImage.getLayoutX() + 85);
+                    resultImageView.setY(selectedImage.getLayoutY() + 97);
                     this.myPane.getChildren().add(resultImageView);
                 }
             });
-            mygpane.add(selectedImage, critCards.size() > 4 ? (i >= 3 ? i-3 : i) : i,  critCards.size() > 4 && i >= 3 ? 1 : 0);
+            mygpane.add(selectedImage, critCards.size() >= 4 ? (i >= 3 ? i-3 : i) : i,  i >= 3 ? 1 : 0);
             i++;
         }
         mygpane.setLayoutX(0);
         mygpane.setLayoutY(0);
 
         this.myPane.getChildren().addAll(mygpane);
-        System.out.println("CriteriaCardSelectionController initialized");
     }
 
     @FXML
