@@ -51,7 +51,7 @@ public class PunchCardSelectionController implements Initializable {
 
         Label usernameLabel = new Label(game.getPlayers().get(game.getPlayerToPlay()).getUsername());
         usernameLabel.setLayoutX(25);
-        usernameLabel.setLayoutY(175);
+        usernameLabel.setLayoutY(350);
 
         GridPane mygpane = new GridPane();
         int i = 0;
@@ -61,14 +61,12 @@ public class PunchCardSelectionController implements Initializable {
             Image image = new Image(PunchCardSelectionController.class.getResource("imgs/" + critCard.getId() + ".png").toString());
             selectedImage.setImage(image);
             selectedImage.setPreserveRatio(true);
-            selectedImage.setFitWidth(200);
-            selectedImage.setFitHeight(200);
-            // mygpane.add(selectedImage, i >= 3 ? i-3 : i, i >= 3 ? 1 : 0);
+            selectedImage.setFitWidth(250);
             mygpane.add(selectedImage, critCards.size() >= 4 ? (i >= 3 ? i-3 : i) : i,  i >= 3 ? 1 : 0);
             i++;
         }
-        // mygpane.setLayoutX(25);
-        mygpane.setLayoutY(25);
+        mygpane.setLayoutX(20);
+        mygpane.setLayoutY(15);
 
         this.myPane.getChildren().addAll(mygpane, usernameLabel);
 

@@ -29,16 +29,16 @@ public class CriteriaCardSelectionController implements Initializable {
         Game game = Game.getInstance();
         int ptp = game.getPlayerToPlay();
         Player currentPlayer = game.getPlayers().get(ptp);
-        Label usernameLabel = new Label("Username: "+currentPlayer.getUsername() + "  " + currentPlayer.getTestCount());
-        Label punchCardLabel = new Label("Punchcard selected :"+currentPlayer.getPunchCard().toString());
-        Label indicationLabel = new Label("PunchCard's order \n -> Blue | Yellow | Purple");
+        Label usernameLabel = new Label("Username: "+currentPlayer.getUsername() + "\n\t" + currentPlayer.getTestCount()+ " tests de critères");
+        Label punchCardLabel = new Label("Punchcard selected : "+currentPlayer.getPunchCard().toString());
+        Label indicationLabel = new Label("PunchCard's order \n\t Blue | Yellow | Purple");
 
         indicationLabel.setLayoutX(25);
-        indicationLabel.setLayoutY(200);
+        indicationLabel.setLayoutY(425);
         usernameLabel.setLayoutX(25);
-        usernameLabel.setLayoutY(150);
+        usernameLabel.setLayoutY(350);
         punchCardLabel.setLayoutX(25);
-        punchCardLabel.setLayoutY(290);
+        punchCardLabel.setLayoutY(500);
         myPane.getChildren().addAll(usernameLabel, punchCardLabel,indicationLabel);
 
         GridPane mygpane = new GridPane();
@@ -49,8 +49,7 @@ public class CriteriaCardSelectionController implements Initializable {
             Image critImage = new Image(CriteriaCardSelectionController.class.getResource("imgs/" + critCard.getId() + ".png").toString());
             selectedImage.setImage(critImage);
             selectedImage.setPreserveRatio(true);
-            selectedImage.setFitWidth(200);
-            selectedImage.setFitHeight(200);
+            selectedImage.setFitWidth(250);
 
             selectedImage.setOnMouseClicked(e -> {
                 if (currentPlayer.canCheckAnotherCriteria()) {
@@ -60,23 +59,22 @@ public class CriteriaCardSelectionController implements Initializable {
                     currentPlayer.incrementTestCount();
                     
                     selectedImage.setOnMouseClicked(null);
-                    selectedImage.setStyle("-fx-opacity: 0.5");
                     ImageView resultImageView = new ImageView();
                     Image resultImage = new Image(CriteriaCardSelectionController.class.getResource((answer ? "true.png" : "false.png")).toString());
                     resultImageView.setImage(resultImage);
                     resultImageView.setPreserveRatio(true);
                     resultImageView.setFitWidth(32);
                     resultImageView.setFitHeight(32);
-                    resultImageView.setX(selectedImage.getLayoutX() + 85);
-                    resultImageView.setY(selectedImage.getLayoutY() + 97);
+                    resultImageView.setX(selectedImage.getLayoutX() + 125);
+                    resultImageView.setY(selectedImage.getLayoutY() + 145);
                     this.myPane.getChildren().add(resultImageView);
                 }
             });
             mygpane.add(selectedImage, critCards.size() >= 4 ? (i >= 3 ? i-3 : i) : i,  i >= 3 ? 1 : 0);
             i++;
         }
-        mygpane.setLayoutX(0);
-        mygpane.setLayoutY(0);
+        mygpane.setLayoutX(20);
+        mygpane.setLayoutY(15);
 
         this.myPane.getChildren().addAll(mygpane);
     }
