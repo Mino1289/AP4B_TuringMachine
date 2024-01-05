@@ -17,8 +17,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="280.0" layoutY="605.0" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="62.0" prefWidth="240.0" text="Quitter" />
-      <Button layoutX="280.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#showHighScores" prefHeight="62.0" prefWidth="240.0" text="Meilleurs scores" />
+      <Button layoutX="280.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="62.0" prefWidth="240.0" text="Quitter" />
       <Button layoutX="284.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#startGame" prefHeight="62.0" prefWidth="231.0" text="Jouer" />
       <Label layoutX="47.0" layoutY="87.0" prefHeight="58.0" prefWidth="185.0" text="UTBM Thief Version">
          <font>

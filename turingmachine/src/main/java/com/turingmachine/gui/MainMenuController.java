@@ -11,12 +11,6 @@ public class MainMenuController {
     }
 
     @FXML
-    private void showHighScores() {
-        
-    }
-
-
-    @FXML
     public void quit() {
         System.exit(0);
     }
