@@ -8,6 +8,7 @@ AnchorPane {
 Label {
     -fx-font-family: "Impact";
     -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
 }
 
 Button {

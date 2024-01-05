@@ -29,14 +29,17 @@ public class CriteriaCardSelectionController implements Initializable {
         Game game = Game.getInstance();
         int ptp = game.getPlayerToPlay();
         Player currentPlayer = game.getPlayers().get(ptp);
-        Label usernameLabel = new Label(currentPlayer.getUsername() + "  " + currentPlayer.getTestCount());
-        Label punchCardLabel = new Label(currentPlayer.getPunchCard().toString());
+        Label usernameLabel = new Label("Username: "+currentPlayer.getUsername() + "  " + currentPlayer.getTestCount());
+        Label punchCardLabel = new Label("Punchcard selected :"+currentPlayer.getPunchCard().toString());
+        Label indicationLabel = new Label("PunchCard's order \n -> Blue | Yellow | Purple");
 
-        usernameLabel.setLayoutX(150);
+        indicationLabel.setLayoutX(25);
+        indicationLabel.setLayoutY(200);
+        usernameLabel.setLayoutX(25);
         usernameLabel.setLayoutY(150);
-        punchCardLabel.setLayoutX(175);
-        punchCardLabel.setLayoutY(175);
-        myPane.getChildren().addAll(usernameLabel, punchCardLabel);
+        punchCardLabel.setLayoutX(25);
+        punchCardLabel.setLayoutY(290);
+        myPane.getChildren().addAll(usernameLabel, punchCardLabel,indicationLabel);
 
         GridPane mygpane = new GridPane();
         int i = 0;
@@ -75,7 +78,7 @@ public class CriteriaCardSelectionController implements Initializable {
             mygpane.add(selectedImage, critCards.size() > 4 ? (i >= 3 ? i-3 : i) : i,  critCards.size() > 4 && i >= 3 ? 1 : 0);
             i++;
         }
-        mygpane.setLayoutX(25);
+        mygpane.setLayoutX(0);
         mygpane.setLayoutY(0);
 
         this.myPane.getChildren().addAll(mygpane);

@@ -15,7 +15,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="419.0" layoutY="640.0" mnemonicParsing="false" onMouseClicked="#backToMainMenu" text="Menu" />
-      <Button layoutX="249.0" layoutY="640.0" mnemonicParsing="false" onMouseClicked="#backToMainMenu" text="Menu Précedent" />
+      <Button layoutX="349.0" layoutY="642.0" mnemonicParsing="false" onMouseClicked="#backToMainMenu" text="Menu" />
    </children>
 </AnchorPane>

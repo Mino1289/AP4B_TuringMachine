@@ -124,11 +124,11 @@ public class ResultScreenController implements Initializable {
                 });
             }
         }
-        lbl.setLayoutX(330);
+        lbl.setLayoutX(320);
         lbl.setLayoutY(250);
         btn.setLayoutX(350);
         btn.setLayoutY(650);
-        myGridPane.setLayoutX(50);
+        myGridPane.setLayoutX(0);
         myGridPane.setLayoutY(50);
 
         myPane.getChildren().addAll(myGridPane, lbl, btn);
