@@ -2,7 +2,7 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="myPane" maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0" stylesheets="@result-screen.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.ResultScreenController">
+<AnchorPane fx:id="myPane" maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0" stylesheets="@result-screen.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.ResultScreenController">
    <children>
    </children>
 </AnchorPane>

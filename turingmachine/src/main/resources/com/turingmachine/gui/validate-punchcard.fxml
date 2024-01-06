@@ -9,19 +9,19 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="myPane" maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0" stylesheets="@punchcard-selection.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.ValidatePunchCardController">
+<AnchorPane fx:id="myPane" maxHeight="800" maxWidth="800" minHeight="800" minWidth="800" prefHeight="800.0" prefWidth="800.0" stylesheets="@punchcard-selection.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.turingmachine.gui.ValidatePunchCardController">
    <children>
-      <Label layoutX="270.0" layoutY="318.0" text="Choisissez le code à vérifier">
+      <Label layoutX="270.0" layoutY="350.0" text="Choisissez le code à vérifier">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Spinner fx:id="blue" initialValue="1" layoutX="244.0" layoutY="400.0" max="5" min="1" prefHeight="19.0" prefWidth="79.0" />
-      <Spinner fx:id="yellow" initialValue="1" layoutX="371.0" layoutY="400.0" max="5" min="1" prefHeight="19.0" prefWidth="79.0" />
-      <Spinner fx:id="purple" initialValue="1" layoutX="494.0" layoutY="400.0" max="5" min="1" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner fx:id="blue" initialValue="1" layoutX="244.0" layoutY="450.0" max="5" min="1" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner fx:id="yellow" initialValue="1" layoutX="371.0" layoutY="450.0" max="5" min="1" prefHeight="19.0" prefWidth="79.0" />
+      <Spinner fx:id="purple" initialValue="1" layoutX="494.0" layoutY="450.0" max="5" min="1" prefHeight="19.0" prefWidth="79.0" />
       <Button layoutX="363.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#validate" text="Valider" />
-      <Circle fill="#9b55b4" layoutX="534.0" layoutY="378.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe21f" height="35.0" layoutX="393.0" layoutY="361.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Polygon fill="#5290c9" layoutX="284.0" layoutY="363.0" points="-19.20001220703125, 32.399993896484375, 16.79998779296875, 32.399993896484375, -1.5999755859375, -3.600006103515625" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#9b55b4" layoutX="534.0" layoutY="428.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe21f" height="35.0" layoutX="393.0" layoutY="411.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Polygon fill="#5290c9" layoutX="284.0" layoutY="413.0" points="-19.20001220703125, 32.399993896484375, 16.79998779296875, 32.399993896484375, -1.5999755859375, -3.600006103515625" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>

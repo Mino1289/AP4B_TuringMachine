@@ -20,13 +20,12 @@ public class ValidateScreenController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("ValidateScreen started initalize");
         GridPane myGridPane = new GridPane();
         Game game = Game.getInstance();
 
         int i = 1;
         for (Player player : game.getPlayers()) {
-            Label pLabel = new Label(player.getUsername());
+            Label pLabel = new Label("Username: "+ player.getUsername());
             Button pButton = new Button("Je pense avoir trouvé");
             pButton.setOnMouseClicked(e -> {
                 pButton.setOnMouseClicked(null);
@@ -40,11 +39,10 @@ public class ValidateScreenController implements Initializable {
 
         myGridPane.setHgap(20);
         myGridPane.setVgap(20);
-        myGridPane.setLayoutX(150);
+        myGridPane.setLayoutX(0);
         myGridPane.setLayoutY(150);
 
         myPane.getChildren().addAll(myGridPane);
-        System.out.println("ValidateScreen initialized");
     }
 
     @FXML

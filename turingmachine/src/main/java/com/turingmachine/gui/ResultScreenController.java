@@ -55,7 +55,6 @@ public class ResultScreenController implements Initializable {
 
         Label lbl = new Label();
         Button btn = new Button("Suivant");
-        System.out.println("idxList.size = " + idxList.size());
         if (idxList.size() == 1) {
             // easy case, he wins the game
             Player winner = game.getPlayersTerminated().get(idxList.get(0));
@@ -124,11 +123,11 @@ public class ResultScreenController implements Initializable {
                 });
             }
         }
-        lbl.setLayoutX(330);
+        lbl.setLayoutX(320);
         lbl.setLayoutY(250);
         btn.setLayoutX(350);
         btn.setLayoutY(650);
-        myGridPane.setLayoutX(50);
+        myGridPane.setLayoutX(0);
         myGridPane.setLayoutY(50);
 
         myPane.getChildren().addAll(myGridPane, lbl, btn);
